@@ -11,6 +11,7 @@
     -->
 </head>
 <body>
+<!-- Basic elements -->
     <h1 id="top">Top of the Page</h1>
     Hello World.
     <h1>Bigger Hello World!</h1>
@@ -50,9 +51,74 @@
         </tr>
 
     </table>
+<!-- HTML FORMS -->
+    <form method="post" action="https://request-inspector.glitch.me/">
+        <label for="username">User</label>
+        <input id="username" name="username" type="text" placeholder="Enter your username">
+        <br>
+
+        <label for="password">Pass</label>
+        <input id="password" name="password" type="password"  placeholder="Enter your password">
+        <br>
+        <textarea name="comment" placeholder="How's the weather?"></textarea>
+        <br>
+
+<!-- BUTTTONS and checkboxes -->
+        <input name="newsletter_signup" value="true" type="checkbox" checked>Sign up for the news
+        <br>
+        <input name="junk spam" value="true" type="checkbox" >Enroll for spam mail <br>
+        <input type="radio" name="question1" value="a">Apples<br>
+        <input type="radio" name="question1" value="b">Peaches<br>
+        <input type="radio" name="question1" value="c">Guava<br>
+
+        <br>
+        <!-- SELECT DROP DOWNS -->
+
+        <select name="Favorite Superhero">
+            <option value="Superman">Superman</option>
+            <option value="Wonder Woman">Wonder Woman</option>
+            <option value="Jeanne Gray">Phoenix</option>
+        </select>
+        <br>
+
+        <input type="text" name="username" value="Coders" disabled>
+        <select name="news sign">
+            <option disabled value="n">No</option>
+            <option selected value="y">Yes</option>
+        </select><br>
+
+        <h2>What kind of phone do you own?</h2>
+        <label for="android">
+            Android <input id="android" type="checkbox" name="phones" value="android">
+        </label>
+        <label for="ios">
+            iOS <input id="ios" type="checkbox" name="phones" value="ios">
+        </label>
+        <label for="windows">
+            Windows <input id="windows" type="checkbox" name="phones" value="windows">
+        </label>
+        <label for="other">
+            Other <input id="other" type="checkbox" name="phones" value="other">
+        </label>
 
 
 
+
+
+        <!-- hidden data for back end -->
+        <br>
+        <input type="hidden" name="user_id" value="432">
+        <!-- SUBMIT FORM DATA -->
+        <button type="submit">Sub</button>
+    </form>
+
+
+
+    <!-- END POINT
+    @@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@
+    @@@@@@@@@@
+    -->
     <a href="#top">Go to the top</a><br>
 </body>
 </html>

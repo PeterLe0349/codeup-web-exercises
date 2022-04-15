@@ -58,6 +58,7 @@
     console.log("Random number is: " + random);
     console.log(isTwo(random));
 
+
     /**
      * TODO:
      * Create a function named 'calculateTip' to calculate a tip on a bill at a
