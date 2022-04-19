@@ -165,28 +165,30 @@ var luckyNumber = Math.floor(Math.random() * 6);
  * HINT: The way we prompt for a value could be improved
  */
 let enterNumber = false;
-
+let text = '';
 let choice = confirm("Press okay if you want to enter a number");
 if(choice === true){
+    //***** can do 3 separate alerts per IF or just concatenate in one big string and do one alert
     let num = prompt("Enter a number:");
+    text = 'The entered number is:' + num+". ";
     if(!isNaN(num)) {
         num = parseFloat(num);
         if (num % 2 === 0) {
-            alert("Entered number is even: " + num);
+            text += ("Entered number is even: " + num +". ");
         } else if (num % 2 === 1 || num %2 === -1) {
-            alert("Entered number is odd: " + num);
+            text += ("Entered number is odd: " + num+". ");
         }
-        alert("The number plus 100 is: " + (100+num))
+        text +=  ("The number plus 100 is: " + (100+num)+". ")
         if (num >= 0){
-            alert("Number is positive!");
+            text += ("Number is positive!"+". ");
         }else {
-            alert("Number is negative!");
+            text += ("Number is negative!"+". ");
         }
     }
     else{
-        alert("Entered input is not a number: "+ num);
+        text += ("Entered input is not a number: "+ num+". ");
     }
-
+    alert(text);
 }
 
 
