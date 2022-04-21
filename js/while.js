@@ -39,6 +39,6 @@ function sellCones(){
     }while(conesRemaining > 0)
     console.log("DONE FOR THE DAY! ")
 }
-sellCones();
+//sellCones();
 
 

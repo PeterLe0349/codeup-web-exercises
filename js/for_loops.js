@@ -50,13 +50,49 @@ console.log("Countdown by -5");
 
 
   //countDown(100);
+//replace every other letter in string with Z
+function replaceLettersWithZ(str){
+  let zzz = '';
+  if(typeof str != 'string'){
+    console.log("Not a string YO");
+  } else {
+    for(let i = 0; i < str.length; i++){
+      if(i%2 === 1){
+        zzz += 'Z'
+      } else {
+        zzz += str[i];
+      }
+    }
+  }
+  return zzz;
+}
 
+function factorial(num){
+    let product = 1;
+    for(let i = 1; i<=num;i++){
+      product *=i;
+    }
+    return product;
+}
 
+  //console.log(factorial(6));
+//1-100 print fizzbuzz for multiple of 3 and 5, 3 for fizz, 5 for buzz
+  function fizzBuzz(input){
+    for(let i= 1; i<=100; i++){
+      if(i%3 == 0  && i%5 == 0){
+        console.log("FizzBuzz");
+      }
+      else if(i%3 == 0){
+        console.log("Fizz");
+      } else if(i%5 == 0){
+        console.log("Buzz");
+      }else {
+        console.log(i);
+      }
+    }
 
-
-
-
-
+}
+fizzBuzz();
 
 
 }())
