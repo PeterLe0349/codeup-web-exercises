@@ -25,15 +25,15 @@
  * console.logging the function's return value
  */
 // function analyzeColor(str){
-//     if(str === 'blue' ){
+// if(str === 'blue' ){
 //         return "blue like blueberries";
-//     } else if (str ==='red'){
+//   else if (str ==='red'){
 //         return 'bloody red!';
-//     } else if (str === 'cyan'){
+//   else if (str === 'cyan'){
 //         return 'what\'s cyan';
-//     }  else if(str === 'violet'){
+//    else if(str === 'violet'){
 //         return 'violet is like purple'
-//     }
+//
 //     else{
 //             return "some other color";
 //     }
@@ -52,8 +52,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-console.log("Random test: "  + randomColor + ", " + analyzeColor(randomColor));
-
+console.log("Random test: "  + randomColor + ", " + analyzeColor(randomColor
 
 /**
  * TODO:
