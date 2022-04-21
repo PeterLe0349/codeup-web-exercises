@@ -30,14 +30,13 @@ function sellCones(){
     do {
         coneOrder = createRandomBetween(1,5);
         if(coneOrder > conesRemaining){
-            console.log("I don't have enough cones. You ordered " + coneOrder + ". We only have " + conesRemaining + ". Yeah sold enough for today!");
-            break;
+            console.log("I don't have enough cones. You ordered " + coneOrder + ". We only have " + conesRemaining + ".");
         } else {
-            console.log(" You were sold " + coneOrder + ". We have " + (conesRemaining-coneOrder));
+            console.log(" You were sold " + coneOrder + ". We have " + (conesRemaining-coneOrder)+" left.");
             conesRemaining -= coneOrder;
         }
 
-    }while(conesRemaining > coneOrder)
+    }while(conesRemaining > 0)
     console.log("DONE FOR THE DAY! ")
 }
 sellCones();
