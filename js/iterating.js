@@ -41,8 +41,8 @@ console.log("The number of elements in Array- Names is "+ names.length);
      */
 
     function printNamesForEach(arr) {
-        names.forEach(function (names) {
-            console.log("forEach of names is " + names + '.');
+        names.forEach(function (name, num, arra) {
+            console.log("forEach of names is " + name + ' from ' + arra );
         })
     }
     printNamesForEach(names);
