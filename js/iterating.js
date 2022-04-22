@@ -76,4 +76,17 @@ console.log("The number of elements in Array- Names is "+ names.length);
     console.log("Second function: " + second(names));
     console.log("Last function: " + last(names));
 
+    /* third iterating way
+    for (let instructor of instructors) {
+    console.log(instructor + " ");
+    }
+    can't go backwards, must follow sequentially
+
+
+
+
+     */
+
+
+
 })();

@@ -1,6 +1,8 @@
 
     "use strict";
-//REMOVED IIFE to test html code in HTML file
+
+    (function(){
+
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
     var planetsArray;
 
@@ -36,10 +38,12 @@ console.log(planetsStringBreak);
         return stringUnorderedList+'</ul>';
     }
 
-
+    document.getElementById("myBtn").addEventListener("click", getData);
 
     function getData(){
-        document.getElementById('test').innerHTML = createUnList(planetsArray);
-        //document.getElementById('test').innerHTML = planetsStringBreak;
+        document.getElementById('test').innerHTML = "Unordered list<br>" +createUnList(planetsArray);
+        document.getElementById('test').innerHTML += "Using br in string<br>" + planetsStringBreak;
     }
 
+
+    }());
