@@ -60,7 +60,6 @@ console.log("The number of elements in Array- Names is "+ names.length);
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-
     function first(arry){
         return arry[0];
     }
