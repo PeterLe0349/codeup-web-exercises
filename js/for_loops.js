@@ -20,7 +20,7 @@
   function isOddEvenForTenRandoms(){
     for(let i = 0; i < 10; i++){
       //random between 20 and 200
-      let ran = Math.floor(Math.random()*201) + 20;
+      let ran = Math.floor(Math.random()*181) + 20;
       if(ran % 2 == 0) {
         console.log(ran + " is " + "even");
       } else {
