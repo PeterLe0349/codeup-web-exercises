@@ -33,17 +33,20 @@ console.log(planetsStringBreak);
     function createUnList(arr){
         stringUnorderedList = '<ul>';
         arr.forEach(function(planet){
-            stringUnorderedList += '<li>'+ planet;
+            stringUnorderedList += '<li>'+ planet+'</li>';
         })
+        console.log(stringUnorderedList);
         return stringUnorderedList+'</ul>';
+
     }
 
-    document.getElementById("myBtn").addEventListener("click", getData);
+
+        document.getElementById("myBtn").addEventListener("click", getData);
 
     function getData(){
         document.getElementById('test').innerHTML = "Unordered list<br>" +createUnList(planetsArray);
         document.getElementById('test').innerHTML += "Using br in string<br>" + planetsStringBreak;
     }
 
-
     }());
+

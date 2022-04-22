@@ -46,3 +46,10 @@
     planets.sort();
     console.log(planets);
 })();
+
+
+// removeatindex (array,index)
+// use slie arr1 (0, index)
+//  slice arr2 (index+1)
+//return arr1.concat(arr2)
+//OR do SPLICE
