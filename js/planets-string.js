@@ -27,14 +27,20 @@
      */
 let planetsStringBreak = planetsArray.join('<br>');
 console.log(planetsStringBreak);
+
+// document.body.innerHTML.appendchild(string)
+// no appendchild try? with innerhtml
+
+
 //br prints each planet per line
 
     let stringUnorderedList = '';
     function createUnList(arr){
-        stringUnorderedList = '<ul>';
+        stringUnorderedList += '<ul>';
         arr.forEach(function(planet){
             stringUnorderedList += '<li>'+ planet+'</li>';
         })
+        // txt = <ul><li> + planets.join("</li><li>" + "</li><ul>'
         console.log(stringUnorderedList);
         return stringUnorderedList+'</ul>';
 
