@@ -45,4 +45,10 @@
     circle.logInfo(false);
     console.log("4 Circle information rounded to the nearest whole number");
     circle.logInfo(true);
+    circle.radius = 2 ;
+    // log info about the circle
+    console.log("3 Raw circle information");
+    circle.logInfo(false);
+    console.log("4 Circle information rounded to the nearest whole number");
+    circle.logInfo(true);
 })();

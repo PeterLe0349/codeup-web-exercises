@@ -14,6 +14,11 @@ console.log("Objects practice 04 25 22");
 let person = {firstName:"Peter", lastName:"Le"};
     console.log(person.firstName);
     console.log(person.lastName);
+    //define objects as constant so it can't change the type
+    // const person = {};
+    // person.firstName = 'Joe';
+    // person.lastName = 'Montanna'
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
