@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register with us</title>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+
+<body>
+    <header>
+        <h1>Register with Veridian Dynamics Form Page</h1>
+    </header>
+    <nav><a href="https://www.google.com">Veridian Navigation Links</a></nav><hr>
+    <main>
+        <form method="POST" action="https://request-inspector.glitch.me/">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" placeholder="me@me.com"><br>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"><br>
+            <textarea type="text" name="bio" placeholder="about me"></textarea>
+            <section>
+                <strong>How did you hear about us?</strong><br>
+                <input id="billboard" type="checkbox" name="hearAboutUsSource1" value="billboard"><label for="billboard">Billboard</label> <br>
+
+                <input id='radio' type="checkbox" name="hearAboutUsSource2" value="radio_advertisement"><label for="radio">Radio Advertisement</label> <br>
+
+                <input id='internet' type="checkbox" name="hearAboutUsSource3" value="internet_advertisement"><label for="internet">Internet Advertisement</label> <br>
+
+                <input id='other' type="checkbox" name="hearAboutUsSource4" value="other"><label for="other">other</label> <br>
+            </section>
+            <section>
+                <strong>What browser are you using?</strong><br>
+                <select name="browser">
+                    <option value="chrome">Chrome</option>
+                    <option value="safari">Safari</option>
+                    <option value="edge">Edge</option>
+                </select>
+            </section>
+
+        <br><button type="submit">Send Data</button>
+        </form>
+
+
+    </main>
+
+
+    <hr><footer><a href="https://www.bing.com">Veridian Footer Links</a></footer>
+<script src="js/forms.js"></script>
+</body>
+
+
+
+</html>
