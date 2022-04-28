@@ -3,8 +3,62 @@ multi
 line
 comment
 */
+body {
+    color: white;
+    font-family: 'Lobster', cursive;
+    background-color: antiquewhite;
+    background-image: url('../img/pexels-uzunov-rostislav-5011647.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+table, th, td, tr {
+    border: 1px solid honeydew;
+    padding: 3px;
+}
+
+th {
+    text-align: center;
+    font-size: 2em;
+}
 
 .fancy-header {
-    color: purple; /* single line comment */
+    color: antiquewhite; /* single line comment */
     text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: underline;
+    color: floralwhite;
+}
+
+a {
+    color: ghostwhite;
+}
+
+a:link {
+    color: lightblue;
+}
+a:visited {
+    color: lightcoral;
+}
+a:hover {
+    color: lightcyan;
+}
+a:active {
+    color: lightgreen;
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: lower-roman;
 }
