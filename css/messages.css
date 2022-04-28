@@ -1,0 +1,45 @@
+:root {
+    --blue: #6264E3;
+    --green: #1FFF35;
+    --yellow: #FFF844;
+    --red: #FF4718;
+}
+
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+
+}
+
+.message-info{
+    color: var(--blue);
+    background-color: rgba(173, 216, 230, 0.58);
+}
+
+.message-success{
+    color: darkgreen;
+    background-color: rgba(144, 238, 144, 0.3);
+}
+
+.message-warning{
+    color: gold;
+    background-color: rgba(255, 255, 0, 0.17);
+}
+
+.message-error{
+    color: var(--red);
+    background-color: rgba(240, 128, 128, 0.29);
+}
+
+
