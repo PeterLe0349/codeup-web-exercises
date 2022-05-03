@@ -1,15 +1,27 @@
 "use strict";
 (function(){
 
+    function sumOfArrays(arry){
+        let sum = 0;
 
-    function alphaString(input){
-        let strArr = input.split('');
-        strArr.sort();
-        let newStr = strArr.join('');
-        return newStr;
+        for(let x of arry){
+            sum += x;
+        }
+
+        return sum;
     }
 
-    console.log(alphaString('zpadsjkfdfioaabbc'));
+    console.log(sumOfArrays([1,4,3]));
+
+    //
+    // function alphaString(input){
+    //     let strArr = input.split('');
+    //     strArr.sort();
+    //     let newStr = strArr.join('');
+    //     return newStr;
+    // }
+    //
+    // console.log(alphaString('zpadsjkfdfioaabbc'));
 })();
 
 
