@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: lightgray;
+}
+
+ul {
+
+}
+
+#container {
+    display: flex;
+    align-items: center;
+}
+
+.container-item {
+    display: flex;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited{
+    color: black;
+}
+
+li {
+    color: black;
+    list-style: none;
+    font-weight: bolder;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 .5em;
+}
+
+.logo {
+    font-size: 3em;
+    padding: .2em 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+li:nth-child(5){
+    margin: 0 auto;
+}
+
+.link-text {
+    font-family: 'Work Sans', sans-serif;
+}
