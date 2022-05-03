@@ -18,6 +18,23 @@ nav {
     display: flex;
 }
 
+.text-link{
+    width: 40%;
+    display:flex;
+}
+
+.media-link{
+    width: 40%;
+    display:flex;
+    justify-content: end;
+}
+
+.mid {
+    width: 20%;
+    display:flex;
+    justify-content: center;
+}
+
 a:link {
     color: black;
 }
@@ -44,8 +61,13 @@ a{
     font-weight: bolder;
 }
 
-li:nth-child(5){
+.center {
     margin: 0 auto;
+}
+
+li:nth-child(5){
+
+    margin: auto;
 }
 
 .link-text {
