@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display:flex;
+  flex-flow: row wrap;
+}
+
+/* Small devices (phones and pocket devices, 576 and up) */
+@media screen and (min-width:576px) {
+  body {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+}
