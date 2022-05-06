@@ -1,0 +1,52 @@
+:root {
+    --red: #e6563b;
+    --yellow: #eb9d3a;
+    --green: #7cb06c;
+    --blue: #00aba9
+}
+
+
+
+body {
+    font-family: 'Abel', sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1, h2, h3 {
+    font-family: 'Anton', sans-serif;
+}
+
+.btn-circle {
+
+    border: 3px solid white;
+    /*padding: 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*margin: 4px 2px;*/
+    /*cursor: pointer;*/
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.border1 {
+    border: 3px solid white;
+}
