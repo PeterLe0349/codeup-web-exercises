@@ -7,7 +7,9 @@
     --gray: #e6e6e6;
 }
 
-
+.bg-gray {
+    background-color: var(--gray);
+}
 
 body {
     font-family: 'Abel', sans-serif;
