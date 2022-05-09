@@ -1,44 +1,95 @@
 "use strict";
 (function(){
+    console.log("hello");
+    const hamsters = [
+        {
+            name: "Hamtaro",
+            heightInMM: 86,
+            fur: ['orange', 'white'],
+            gender: "male",
+            dateOfBirth: "August 6"
+        } , {
+            name: "Bijou",
+            heightInMM: 75,
+            fur: ['white'],
+            gender: "female",
+            dateOfBirth: "July 10"
+        } , {
+            name: "Oxnard",
+            heightInMM: 100,
+            fur: ['grey', 'white'],
+            gender: "male",
+            dateOfBirth: "May 3"
+        } , {
+            name: "Boss",
+            heightInMM: 120,
+            fur: ['brown', 'white'],
+            gender: "male",
+            dateOfBirth: "Spetember 21"
+        } , {
+            name: "Snoozer",
+            heightInMM: 85,
+            fur: ['brown', 'white', "pink"],
+            gender: "male",
+            dateOfBirth: "January 14"
+        }
+    ];
 
-    let product1 = {
-        name: 'Hammar',
-        priceInCents: 400,
-        description: 'It is a a hammar.',
-        inventory: 25034
+    function returnHighestObject(arrayObject){
+        let highest = 0;
+        let highestIndex = 0;
+
+        for(let i =0; i < arrayObject.length; i++){
+            if(arrayObject[i].heightInMM > highest){
+                highest = arrayObject[i].heightInMM;
+                highestIndex = i;
+            }
+        }
+
+        return arrayObject[highestIndex];
     }
 
-    let product2 = {
-        name: 'Computer',
-        priceInCents: 40000,
-        description: 'It is a computer.',
-        inventory: 33000
-    }
-
-    let product3 = {
-        name: 'Ruler',
-        priceInCents: 1000,
-        description: 'It is a ruler.',
-        inventory: 2200
-    }
+    console.log(returnHighestObject(hamsters));
 
 
+    // let product1 = {
+    //     name: 'Hammar',
+    //     priceInCents: 400,
+    //     description: 'It is a a hammar.',
+    //     inventory: 25034
+    // }
+    //
+    // let product2 = {
+    //     name: 'Computer',
+    //     priceInCents: 40000,
+    //     description: 'It is a computer.',
+    //     inventory: 33000
+    // }
+    //
+    // let product3 = {
+    //     name: 'Ruler',
+    //     priceInCents: 1000,
+    //     description: 'It is a ruler.',
+    //     inventory: 2200
+    // }
 
-    function returnProductEssentialDetails(product){
-        return {name:product.name, priceInCents:product.priceInCents}
-    } // returns...
+
+
+    // function returnProductEssentialDetails(product){
+    //     return {name:product.name, priceInCents:product.priceInCents}
+    // } // returns...
 // console.log(returnProductEssentialDetails(product1));
 // console.log(returnProductEssentialDetails(product2));
 
-function returnAllProductsEssentialDetails(arry){
-    const arry2 = [];
-    for(let ob of arry){
-        arry2.push(returnProductEssentialDetails(ob));
-    }
-    return arry2;
+// function returnAllProductsEssentialDetails(arry){
+//     const arry2 = [];
+//     for(let ob of arry){
+//         arry2.push(returnProductEssentialDetails(ob));
+//     }
+//     return arry2;
 
-}
-console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
+
+// console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
     /*
 
         {
@@ -49,7 +100,7 @@ console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
     */
 
 
-    returnProductEssentialDetails(product2); // returns...
+
 
     /*
 
@@ -61,7 +112,7 @@ console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
     */
 
 
-    returnProductEssentialDetails(product3); // returns...
+
 
     /*
 
@@ -100,7 +151,7 @@ console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
     // }
     //
     // console.log(alphaString('zpadsjkfdfioaabbc'));
-})();
+
 
 
 
@@ -130,3 +181,7 @@ console.log(returnAllProductsEssentialDetails([product1,product2,product3]));
 // }
 // //fizzBuzz();
 
+
+
+    // END OF SCRIPT!!!!!!
+})();

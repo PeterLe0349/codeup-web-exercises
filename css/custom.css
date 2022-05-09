@@ -4,13 +4,9 @@
     height: 346px;
 }
 
-.main {
-    width: 70%;
-}
-
-.light-title-bar {
-    opacity: .5;
-}
+/*.light-title-bar {*/
+/*    opacity: .5;*/
+/*}*/
 
 h3{
     margin: 0;
@@ -18,8 +14,8 @@ h3{
     width: 100%;
 }
 
-banner-text {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
+/*banner-text {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*}*/

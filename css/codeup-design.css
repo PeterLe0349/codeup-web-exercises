@@ -2,7 +2,9 @@
     --red: #e6563b;
     --yellow: #eb9d3a;
     --green: #7cb06c;
-    --blue: #00aba9
+    --blue: #00aba9;
+    --white: #f0f0f0;
+    --gray: #e6e6e6;
 }
 
 
@@ -49,4 +51,14 @@ h1, h2, h3 {
 
 .border1 {
     border: 3px solid white;
+}
+
+.clear-all {
+    margin: 0;
+    padding:0;
+}
+
+.logo-size {
+    height: 105px;
+    width: 105px;
 }
