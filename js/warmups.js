@@ -35,21 +35,35 @@
         }
     ];
 
-    function returnHighestObject(arrayObject){
-        let highest = 0;
-        let highestIndex = 0;
-
-        for(let i =0; i < arrayObject.length; i++){
-            if(arrayObject[i].heightInMM > highest){
-                highest = arrayObject[i].heightInMM;
-                highestIndex = i;
+    function returnMostColorful(arrayObject){
+        let mostColorful = {};
+        mostColorful.fur =[];
+        for(let hamster of arrayObject){
+            if(hamster.fur.length > mostColorful.fur.length){
+                mostColorful = hamster;
             }
         }
+        return mostColorful;
 
-        return arrayObject[highestIndex];
     }
 
-    console.log(returnHighestObject(hamsters));
+    console.log(returnMostColorful(hamsters));
+
+    // function returnHighestObject(arrayObject){
+    //     let highest = 0;
+    //     let highestIndex = 0;
+    //
+    //     for(let i =0; i < arrayObject.length; i++){
+    //         if(arrayObject[i].heightInMM > highest){
+    //             highest = arrayObject[i].heightInMM;
+    //             highestIndex = i;
+    //         }
+    //     }
+    //
+    //     return arrayObject[highestIndex];
+    // }
+    //
+    // console.log(returnHighestObject(hamsters));
 
 
     // let product1 = {
