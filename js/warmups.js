@@ -1,53 +1,90 @@
 "use strict";
-(function(){
-    console.log("hello");
-    const hamsters = [
-        {
-            name: "Hamtaro",
-            heightInMM: 86,
-            fur: ['orange', 'white'],
-            gender: "male",
-            dateOfBirth: "August 6"
-        } , {
-            name: "Bijou",
-            heightInMM: 75,
-            fur: ['white'],
-            gender: "female",
-            dateOfBirth: "July 10"
-        } , {
-            name: "Oxnard",
-            heightInMM: 100,
-            fur: ['grey', 'white'],
-            gender: "male",
-            dateOfBirth: "May 3"
-        } , {
-            name: "Boss",
-            heightInMM: 120,
-            fur: ['brown', 'white'],
-            gender: "male",
-            dateOfBirth: "Spetember 21"
-        } , {
-            name: "Snoozer",
-            heightInMM: 85,
-            fur: ['brown', 'white', "pink"],
-            gender: "male",
-            dateOfBirth: "January 14"
-        }
-    ];
 
-    function returnMostColorful(arrayObject){
-        let mostColorful = {};
-        mostColorful.fur =[];
-        for(let hamster of arrayObject){
-            if(hamster.fur.length > mostColorful.fur.length){
-                mostColorful = hamster;
+console.log("hello 05 11");
+
+let strCheck = "rstlne";
+
+function makeObjectFromString(str, stringCheck){
+    const objStr = {};
+
+    objStr.string = str;
+    objStr.size = str.length;
+    objStr.containsLettersFromRSTLNE = containLetters(str, stringCheck);
+    objStr.isOneWord = !str.includes(" ");
+
+    return objStr;
+
+}
+
+function containLetters(str, stringCheckList){
+    for(let i = 0; i< str.length; i++){
+        for(let j = 0; j < stringCheckList.length; j++){
+            if( str[i] === stringCheckList[j]){
+                console.log(str[i] + " and " + str[j]);
+                return true;
             }
+      //USE string.contains("string")
         }
-        return mostColorful;
-
     }
+    return false;
+}
 
-    console.log(returnMostColorful(hamsters));
+console.log(makeObjectFromString("tacocat", strCheck));
+console.log(makeObjectFromString("JJ J", strCheck));
+console.log(makeObjectFromString("love", strCheck));
+
+
+
+
+// (function(){
+//     console.log("hello");
+//     const hamsters = [
+//         {
+//             name: "Hamtaro",
+//             heightInMM: 86,
+//             fur: ['orange', 'white'],
+//             gender: "male",
+//             dateOfBirth: "August 6"
+//         } , {
+//             name: "Bijou",
+//             heightInMM: 75,
+//             fur: ['white'],
+//             gender: "female",
+//             dateOfBirth: "July 10"
+//         } , {
+//             name: "Oxnard",
+//             heightInMM: 100,
+//             fur: ['grey', 'white'],
+//             gender: "male",
+//             dateOfBirth: "May 3"
+//         } , {
+//             name: "Boss",
+//             heightInMM: 120,
+//             fur: ['brown', 'white'],
+//             gender: "male",
+//             dateOfBirth: "Spetember 21"
+//         } , {
+//             name: "Snoozer",
+//             heightInMM: 85,
+//             fur: ['brown', 'white', "pink"],
+//             gender: "male",
+//             dateOfBirth: "January 14"
+//         }
+//     ];
+//
+//     function returnMostColorful(arrayObject){
+//         let mostColorful = {};
+//         mostColorful.fur =[];
+//         for(let hamster of arrayObject){
+//             if(hamster.fur.length > mostColorful.fur.length){
+//                 mostColorful = hamster;
+//             }
+//         }
+//         return mostColorful;
+//
+//     }
+//
+//     console.log(returnMostColorful(hamsters));
 
     // function returnHighestObject(arrayObject){
     //     let highest = 0;
@@ -198,4 +235,4 @@
 
 
     // END OF SCRIPT!!!!!!
-})();
+// })();
