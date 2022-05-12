@@ -7,10 +7,13 @@
     --gray: #E6E6E6;
 }
 
+html{
+    font-size: 1.5em;
+}
+
 body{
     background-color: var(--white);
     font-family: 'Abel', sans-serif;
-    font-size: 1em;
 
 }
 
@@ -22,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
+
 .heavy-dark {
     color: black;
     font-weight: bolder;
@@ -90,23 +94,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (min-width: 768px) {
-    .logo-size {
-        width: 70px;
-        height: 70px;
+    html{
+        font-size: 1.2em;
     }
 
+    .logo-size {
+        width: 90px;
+        height: 90px;
+    }
 
 }
 
 @media screen and (min-width: 992px) {
+    html{
+        font-size: 1.1em;
+    }
 
+    .logo-size {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
+    html{
+        font-size: 1em;
+    }
 
+    .logo-size {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media screen and (min-width: 1400px) {
+    html{
+        font-size: .9em;
+    }
+
+    .logo-size {
+        width: 60px;
+        height: 60px;
+    }
 
 }
 
