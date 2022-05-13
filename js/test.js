@@ -1,7 +1,29 @@
 "use strict";
 //Immediate Invoke Function - security protect changes and access
 (function() {
-    'use strict';
+    // let color = window.prompt("howdy");
+    //
+    // setTimeout(function() {
+    //     alert("howdy interval");
+    // }, 5000);
+
+    let songSung = 0;
+
+    let intervalID = setInterval(function(){
+        alert("hidy hoe neighhbor" + songSung);
+        songSung++;
+        if(songSung === 7) {
+            clearInterval(intervalID);
+            console.log("finished");
+        }
+    }, 3000);
+
+    setTimeout(function(){
+        window.location = 'http://www.bing.com';
+    }, 4000);
+
+
+
 
 // this code will produce a console log every second
 // when count >= max, the interval is cancelled, and the logging will stop
@@ -20,19 +42,7 @@
     //     }
     // }, interval);
 
-
-
-
-
-
 // DONT GO UNDER IIFE
-}());
-
-
-
-
-
-
 
 //help with debugging
 /*
@@ -53,3 +63,7 @@ console.log( 5+5, "should be 10", 'hi');
 //
 // let validName = confirm("You entered: " + name + ". Is this correct?");
 // console.log(validName);
+
+
+
+}());
