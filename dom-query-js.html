@@ -7,6 +7,7 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="head-btn">--change header--</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -14,7 +15,9 @@
     <li data-dbid="4">Item 4</li>
     <li data-dbid="5">Item 5</li>
 </ul>
+<button id="list-btn">--change list--</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="sub-header-btn">--change sub header--</button>
 <p class="sub-paragraph">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -24,6 +27,7 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<button id="para-btn">--change para--</button>
 
 <script>
     (function() {
@@ -32,24 +36,40 @@
         var mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+
+        let headSwap = function(event){
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
+        document.getElementById("head-btn").addEventListener("click", headSwap);
+
+
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.setAttribute("style", "color: blue;");
+        let subSwap = function(event){
+            subHeader.setAttribute("style", "color: blue;");
+        }
+        document.getElementById("sub-header-btn").addEventListener("click", subSwap);
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
 
         // TODO: Set text color on every other list item to grey
-        for(var i = 0; i < listItems.length; i++){
-            listItems[i].setAttribute("style", "color: grey;");
-            if( (listItems[i].getAttribute("data-dbid"))  == "1"){
-                listItems[i].setAttribute("style", "color: blue;");
+
+
+        let listSwap = function(event){
+            for(var i = 0; i < listItems.length; i++){
+                listItems[i].setAttribute("style", "color: grey;");
+                if( (listItems[i].getAttribute("data-dbid"))  == "1"){
+                    listItems[i].setAttribute("style", "color: blue;");
+                }
             }
         }
+        document.getElementById("list-btn").addEventListener("click", listSwap);
+
+
         // TODO: Set text color of li with dbid = 1 to blue
         //ABOVE in conditional
 
@@ -57,7 +77,13 @@
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished!"
+
+
+        let paraSwap = function(event){
+            subParagraphs[0].innerHTML = "Mission Accomplished!"
+        }
+        document.getElementById("para-btn").addEventListener("click", paraSwap);
+
     })();
 </script>
 </body>
