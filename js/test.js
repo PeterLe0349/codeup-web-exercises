@@ -1,26 +1,42 @@
 "use strict";
+// (function() {
 //Immediate Invoke Function - security protect changes and access
-(function() {
-    // let color = window.prompt("howdy");
-    //
-    // setTimeout(function() {
-    //     alert("howdy interval");
-    // }, 5000);
 
-    let songSung = 0;
 
-    let intervalID = setInterval(function(){
-        alert("hidy hoe neighhbor" + songSung);
-        songSung++;
-        if(songSung === 7) {
-            clearInterval(intervalID);
-            console.log("finished");
-        }
-    }, 3000);
 
-    setTimeout(function(){
-        window.location = 'http://www.bing.com';
-    }, 4000);
+document.getElementById("submit").addEventListener("click", function(){
+    console.log(document.getElementById("number").value)
+});
+
+
+
+
+
+
+
+
+
+
+//     // let color = window.prompt("howdy");
+//     //
+//     // setTimeout(function() {
+//     //     alert("howdy interval");
+//     // }, 5000);
+//
+//     let songSung = 0;
+//
+//     let intervalID = setInterval(function(){
+//         alert("hidy hoe neighhbor" + songSung);
+//         songSung++;
+//         if(songSung === 7) {
+//             clearInterval(intervalID);
+//             console.log("finished");
+//         }
+//     }, 3000);
+//
+//     setTimeout(function(){
+//         window.location = 'http://www.bing.com';
+//     }, 4000);
 
 
 
@@ -65,5 +81,5 @@ console.log( 5+5, "should be 10", 'hi');
 // console.log(validName);
 
 
-
-}());
+//
+// }());
