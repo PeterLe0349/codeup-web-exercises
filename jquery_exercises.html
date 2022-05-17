@@ -2,12 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/jquery-2.2.4.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>jQuery Test 2.2.4 version </title>
 </head>
 <body>
 
-<h1 id="codeup">Hello Codeup</h1>
+<!--main container-->
+<div class="container">
+    <div class="row">
+        <h1 id="codeup" class="text-center mb-5 display-4 text-dark">Hello Codeup</h1>
+<!--        main row-->
+
+<!--        left column-->
+        <div class="col-3" id="left-column">
+            <h4>SuperHero Rankings</h4>
+            <ul>
+                <li class="codeup">Captain Marvel</li>
+                <li class="">Thanos</li>
+                <li class="codeup">Morpheus</li>
+            </ul>
+
+
+
+        </div>
+<!--middle column-->
+        <div class="col-6" id="main-column">
+            <img src="img/macbook.jpg" alt="mac" class="img-fluid mb-5">
+            <p><strong>Paragraph1 </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad alias aliquid assumenda cupiditate dignissimos eaque ex excepturi explicabo, harum ipsa itaque iure laudantium placeat quia rem sed. Rerum, similique.</p>
+
+        </div>
+<!--right column-->
+        <div class="col-3" id="right-column">
+            <h4 class="codeup">Best Pizza Toppings</h4>
+            <ol>
+                <li>Pepperoni</li>
+                <li>Sausage</li>
+                <li>Hawaiian</li>
+            </ol>
+
+        </div>
+    </div>
+
+
+
+    <!--Add several attributes to your elements; you will need both id and class attributes.-->
+
+
+
+
+<!--end main container-->
+</div>
 
 
 
@@ -16,6 +63,8 @@
 
 
 
-<script src="js/jQuery-test-customJS.js"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="js/my-custom-javascript.js"></script>
 </body>
 </html>

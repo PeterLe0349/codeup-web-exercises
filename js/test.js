@@ -1,14 +1,24 @@
 "use strict";
-// (function() {
-//Immediate Invoke Function - security protect changes and access
+
+$(document).ready(function() {
+
+    $('div.important p').css('background-color', '#FF0');
 
 
 
-document.getElementById("submit").addEventListener("click", function(){
-    console.log(document.getElementById("number").value)
+
+
+
+
+
+
+
+
+
+
+
+// end jquery
 });
-
-
 
 
 
@@ -79,7 +89,3 @@ console.log( 5+5, "should be 10", 'hi');
 //
 // let validName = confirm("You entered: " + name + ". Is this correct?");
 // console.log(validName);
-
-
-//
-// }());
