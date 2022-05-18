@@ -66,39 +66,30 @@
 <script>
 
   // TODO: Prompt the user to enter a color. Select the first div with the class of "question", and change the font color to the users input.
-  let div1 = document.getElementsByClassName("question")[0];
-  let colorUser = prompt("Enter the color you want:");
-  div1.style.color = colorUser;
+  // let userColor = prompt("What color?");
+  // document.querySelector('div').style.color = userColor;
+  let colorBtn = document.getElementById("changeColor");
+  colorBtn.addEventListener('click', function(e){
+    e.preventDefault();
+   let colorChose =  document.getElementById('color').value;
+    let bodyElement = document.getElementsByTagName('body')[0];
+    bodyElement.style['background-color'] = colorChose;
+
+          }
+  );
+//can target body directly instead of using getelementsbytag 'body
+  //backgroundColor instead of using style[backround-color]
+  //use brackets or .  > means same thing, referencing to properties within properties
 
 </script>
 </body>
 </html>
-white_check_mark
-+1
-raised_hands
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Send a message to umbriel
-
-
-
-
-
-
-
-
-Michael Sigg is typing
+//     DOM Practice Question #1
+//     Create an HTML file called dom-practice.html in codeup-web-exercises repos.
+// Put a text input on an html page with id of "color"
+// Put a button on the page with id of "changeColor"
+// The above is already done from your previous warm-up :)
+// Use an Event listener to trigger when the button is clicked.
+//         Use the value to change the background-color of the page to match the user's input value.
+//         example of input: "#00000", "black", "#FF00FF"
