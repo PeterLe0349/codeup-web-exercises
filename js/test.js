@@ -1,10 +1,8 @@
 "use strict";
 
-$(document).ready(function() {
 
-    $('div.important p').css('background-color', '#FF0');
-
-
+    // $('div.important p').css('background-color', '#FF0');
+console.log(10%3);
 
 
 
@@ -15,10 +13,6 @@ $(document).ready(function() {
 
 
 
-
-
-// end jquery
-});
 
 
 
