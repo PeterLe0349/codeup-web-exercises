@@ -8,5 +8,56 @@ $(document).ready(function(){
       $(this).next().toggleClass("invisible");
    });
 
+   $('#yellowBtn').click(function(e){
+      e.preventDefault();
+      $('ul').each(function(){
+         $(this).children('li').last().css('background-color', 'yellow');
+      });
+   });
+
+   //make all h3 children li yellow
+   $('h3').click(function(e){
+      $(this).next('ul').children('li').each(function(e){
+         $(this).css('font-weight', 'bold');
+      })
+   })
+//make first li of ul children blue when any li clicked
+   $('li').click(function(e){
+      $(this).parent('ul').children('li').first().css('color', 'blue');
+   })
+//swap images
+   $('#imageBtnLeft').click(swapLeft);
+   $('#imageBtnRight').click(swapRight);
+   $('#imageBtnMid').click(swapMid);
+
+function swapMid(){
+      if (getRandom(2,1) === 1){
+         swapLeft();
+      }else {
+         swapRight();
+      }
+}
+
+function swapLeft(){
+   let copySrc = document.getElementById('imageMid').getAttribute('src');
+   let oriSrc = document.getElementById('imageLeft').getAttribute('src');
+   document.getElementById('imageLeft').setAttribute('src', copySrc);
+   document.getElementById('imageMid').setAttribute('src', oriSrc);
+}
+
+function swapRight(){
+   let copySrc = document.getElementById('imageMid').getAttribute('src');
+   let oriSrc = document.getElementById('imageRight').getAttribute('src');
+   document.getElementById('imageRight').setAttribute('src', copySrc);
+   document.getElementById('imageMid').setAttribute('src', oriSrc);
+}
+
+
+
+function getRandom(max, min){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
 
 });

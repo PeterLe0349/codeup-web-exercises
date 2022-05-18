@@ -1,3 +1,11 @@
 .invisible {
     visibility: hidden !important;
 }
+
+body{
+    box-sizing: border-box;
+}
+
+img {
+    border: 9px solid rebeccapurple;
+}

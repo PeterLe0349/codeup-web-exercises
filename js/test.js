@@ -1,9 +1,26 @@
 "use strict";
+$(document).ready(function(){
+    // $('li').css('background-color', '#FF0');
+    // $('li').parent().css('background-color', '#0F0');
+
+    $('#national-parks-heading').next().css('background-color', 'salmon');
+    // $('li').each(function(index) {
+    //     if (index % 2 !== 0) {
+    //         $(this).css('background-color', '#FF0');
+    //     }
+    // });
+
+    // $('#national-parks').children().each(function(index){
+    //     if(index%2 === 0){
+    //     $(this).css('font-weight', 'bold');
+    //     }
+    // });
 
 
-    // $('div.important p').css('background-color', '#FF0');
-console.log(10%3);
 
+
+// end jquery
+});
 
 
 

@@ -17,9 +17,45 @@
 <body>
 <div class="container">
     <div class="row">
-        <h4 class="">FAQ about National Parks</h4>
+        <div class="container" id="traverse-container">
+            <div class="row justify-content-center">
+                <div class="col-10 row" >
+                    <h3 class="text-center mb-3">jQuery Traverse</h3>
+                    <div class="col-4">
+                        <img id="imageLeft" src="img/comic1.jpeg" class="img-fluid" alt="...">
+                        <div class="d-grid mt-3">
+                            <button id="imageBtnLeft" type="button" class="btn btn-dark">Swap</button>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <img id="imageMid" src="img/comic2.jpeg" class="img-fluid" alt="...">
+                        <div class="d-grid mt-3">
+                            <button id="imageBtnMid" type="button" class="btn btn-dark">Swap</button>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <img id="imageRight" src="img/comic3.jpeg" class="img-fluid" alt="...">
+                        <div class="d-grid mt-3">
+                            <button id="imageBtnRight" type="button" class="btn btn-dark">Swap</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--        end main row-->
+            </div>
+            <!--    end traverse container-->
+        </div>
+
+
+        <h4 class="text-center">FAQ about National Parks</h4>
+        <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+        <button id="showBtn">Show definition</button>
+        </div>
         <dl>
-            <button id="showBtn">Show definition</button>
+
             <dt>What is a National Park?</dt>
             <dd class="invisible">an area set aside by a national government for the preservation of the natural environment</dd>
 
@@ -53,6 +89,28 @@
             <dd class="invisible">Total recreation visitors to the national parks in 2021: 297,115,406.</dd>
 
         </dl>
+        <div id="yellowBtn" class="col-auto border bg-light border-warning">Yellowize LI</div>
+        <h3>National Parks of US</h3>
+        <ul id="national-parks">
+            <li>Arches</li>
+            <li>Badlands</li>
+            <li>Carlsbad Caverns</li>
+            <li>Denali</li>
+        </ul>
+        <h3>State Parks of Texas</h3>
+        <ul id="state-parks-texas">
+            <li>Abilene</li>
+            <li>Big Bend</li>
+            <li>Choke Canyon</li>
+            <li>Davis Mountains</li>
+        </ul>
+        <h3>State Park of Marvel</h3>
+        <ul id="state-parks-marvel">
+            <li>Rogue</li>
+            <li>Gambit</li>
+            <li>Wolverine</li>
+            <li>Phoenix</li>
+        </ul>
 
 
 
