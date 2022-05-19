@@ -1,4 +1,5 @@
 "use strict";
+$(document).ready(function(){
 
 
 let favIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-kiss" viewBox="0 0 16 16">
@@ -105,3 +106,15 @@ submitButton.addEventListener('click', updateCoffees);
 
 var submitButton2 = document.querySelector('#submit2');
 submitButton2.addEventListener('click', updateCoffees3);
+
+$('.anime').hover(
+    function (){
+        $(this).toggleClass("bg-primary");
+    },
+    function(){
+        $(this).toggleClass("bg-primary");
+    }
+);
+
+
+});
