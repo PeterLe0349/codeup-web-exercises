@@ -24,29 +24,61 @@
 <script>
 (function() {
     "use strict";
+    let dataBank;
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    // $.ajax({
-    //     url: "data/inventory.json",
-    //     type: "GET",
-    //     data: {
-    //         limit:  10,
-    //         offset: 20
-    //     }
-    // }).done(function(data) {
-    //     console.log(data[0].title);
-    //     // do something with the data
-    // });
-
-    $.post("data/inventory.json", {
-        first_name: "George",
-        last_name:  "Weathers",
-        city:       "Denver",
-        state:      "CO"
+    $.ajax({
+        url: "data/inventory.json",
+        type: "GET",
+        data: "{}",
+        async: false,
+        dataType: "json"
     }).done(function(data) {
-        console.log(data);
-        // do something with the response
+        // for(let da of data){
+        //     dataBank.push(data);
+        // }
+        // do something with the data
+        // for(let i= 0; i < data.length; i++){
+        //    // console.log(data[i]);
+        //    //  const obj = {};
+        //    //  obj.title = data[i].title;
+        //    //  obj.quantity = data[i].quantity;
+        //    //  // obj.categories = data[i].categories;
+        //    //  obj.price = data[i].price;
+        //    //  console.log(typeof data[1]);
+        //    makeObject(data[i].title, data[i].quantity, data[i].categories, data[i].price);
+        // }
+        // console.log(data[2].title);
+        // dataBank = Object.create(data);
+        dataBank = data;
     });
 
+    function makeObject(title, quantity, categories, price){
+        dataBank.push(Object.create({title, quantity, categories, price}));
+    }
+
+
+    console.log(dataBank[0]);
+    // function makeProductRow(productObject){
+    //     let rowData = '';
+    //     rowData += `<tr> <td> ${productObject.title} </td>`;
+    //     rowData += `<td> ${productObject.quantity} </td>`;
+    //     return rowData;
+    // }
+
+    // console.log(dataBank.data);
+
+    //     "title": "Screwdrivers",
+    //     "quantity": 25,
+    //     "categories": [
+    //         "tool"
+    //     ],
+    //     "price": 10
+    // <tr>
+    //     <th>Title</th>
+    //     <th>Quantity</th>
+    //     <th>Price</th>
+    //     <th>Categories</th>
+    // </tr>
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
