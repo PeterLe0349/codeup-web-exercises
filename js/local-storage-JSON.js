@@ -52,8 +52,11 @@ retrievedObject.push({yeah:32, idi:34});
  let result = JSON.parse(localStorage.getItem("newObject"));
     console.log(result);
 
-    // console.log("Retrieved data: ", JSON.parse(retrievedObject));
+    toolDisplay.innerHTML = `The total amount of objects in array: ${result.length}`;
+    toolDisplay.innerHTML += `<br>First item is: ${JSON.stringify(result[0])}`;
 
+    // console.log("Retrieved data: ", JSON.parse(retrievedObject));
+jQuery('#displayTool').html('HIHI');
 
 
 
