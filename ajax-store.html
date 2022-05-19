@@ -2,12 +2,19 @@
 <html>
 <head>
     <title>Online Store</title>
+    <style>
+        table, th, td{
+            border: 2px solid;
+            border-collapse: collapse;
+            padding: 2px;
+        }
+    </style>
 </head>
 <body>
 
 <h1>My Tool Store</h1>
 
-<table id="products">
+<table id="products" >
     <thead>
         <tr>
             <th>Title</th>
@@ -33,52 +40,29 @@
         async: false,
         dataType: "json"
     }).done(function(data) {
-        // for(let da of data){
-        //     dataBank.push(data);
-        // }
-        // do something with the data
-        // for(let i= 0; i < data.length; i++){
-        //    // console.log(data[i]);
-        //    //  const obj = {};
-        //    //  obj.title = data[i].title;
-        //    //  obj.quantity = data[i].quantity;
-        //    //  // obj.categories = data[i].categories;
-        //    //  obj.price = data[i].price;
-        //    //  console.log(typeof data[1]);
-        //    makeObject(data[i].title, data[i].quantity, data[i].categories, data[i].price);
-        // }
-        // console.log(data[2].title);
-        // dataBank = Object.create(data);
-        dataBank = data;
+
+        let html = '';
+        for(let i = 0; i< data.length; i++){
+            html += makeProductRow(data[i]);
+        }
+        $('#insertProducts').html(html);
+
+
     });
 
-    function makeObject(title, quantity, categories, price){
-        dataBank.push(Object.create({title, quantity, categories, price}));
+
+
+
+    // console.log(dataBank[0]);
+    function makeProductRow(productObject){
+        let rowData = '';
+        rowData += `<tr> <td> ${productObject.title} </td>`;
+        rowData += `<td> ${productObject.quantity} </td>`;
+        rowData += `<td> ${productObject.price} </td>`;
+        rowData += `<td> ${productObject.categories} </td>`;
+        return rowData;
     }
 
-
-    console.log(dataBank[0]);
-    // function makeProductRow(productObject){
-    //     let rowData = '';
-    //     rowData += `<tr> <td> ${productObject.title} </td>`;
-    //     rowData += `<td> ${productObject.quantity} </td>`;
-    //     return rowData;
-    // }
-
-    // console.log(dataBank.data);
-
-    //     "title": "Screwdrivers",
-    //     "quantity": 25,
-    //     "categories": [
-    //         "tool"
-    //     ],
-    //     "price": 10
-    // <tr>
-    //     <th>Title</th>
-    //     <th>Quantity</th>
-    //     <th>Price</th>
-    //     <th>Categories</th>
-    // </tr>
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
