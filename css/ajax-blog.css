@@ -1,0 +1,8 @@
+:root{
+    --purple: purple;
+}
+
+.bannerTop {
+    height: 100px;
+    background-color: darkgray;
+}
