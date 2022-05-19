@@ -77,23 +77,25 @@
 
           }
   );
-  let todoBtn = document.getElementById('addTodo');
 
+
+
+  let todoBtn = document.getElementById('addTodo');
   let listDisplay = document.getElementById('todosList');
   todoBtn.addEventListener("click", addToList);
-
+  let inputValue = document.getElementById('todo');
+// ADD TO LIST
   let listData = '';
   function addToList(){
-    let inputValue = document.getElementById('todo').value;
     if(inputValue === ''){
       alert("You entered nothing!");
     }else
     {
       let html = '';
-      html += `<li>${inputValue}</li>`;
+      html += `<li>${inputValue.value}</li>`;
       listData += html;
       listDisplay.innerHTML = listData;
-      document.getElementById('todo').value = '';
+      inputValue.value = '';
     }
 
   }

@@ -1,5 +1,7 @@
 "use strict";
 $(document).ready(function(){
+    let blogCounter = 0;
+    let blogDisplay = document.getElementById('blogsContainer');
 
     $.ajax({
         url: "../data/blog.json",
@@ -8,21 +10,28 @@ $(document).ready(function(){
         // async: false,
         dataType: "json"
     }).done(function(data) {
-
-        console.log(data[1].date);
-
-
+        for(let blog of data){
+            makeBlog(blog);
+        }
     });
 
-    // console.log(dataBank[0]);
-    // function makeProductRow(productObject){
-    //     let rowData = '';
-    //     rowData += `<tr> <td> ${productObject.title} </td>`;
-    //     rowData += `<td> ${productObject.content} </td>`;
-    //     rowData += `<td> ${productObject.categories} </td>`;
-    //     rowData += `<td> ${productObject.date} </td>`;
-    //     return rowData;
-    // }
+
+
+    function makeBlog(blogObject){
+        let rowData = '';
+        blogCounter++;
+        rowData += `<div className="card text-center">`;
+        rowData += `<div className="card-header">Blog #${blogCounter}</div> `;
+        rowData += `<div className="card-body">`;
+        rowData += `<h5 className="card-title">${blogObject.title}</h5>`;
+        rowData += ` <p className="card-text">${blogObject.content}</p>`;
+        rowData += `<a href="#" className="btn btn-primary">${blogObject.categories}</a>`;
+        rowData += `</div>`;
+        rowData += `<div className="card-footer text-muted"> ${blogObject.date} </div> `;
+        rowData += `</div>`;
+        rowData += `<hr>`;
+        blogDisplay.innerHTML += rowData;
+    }
 
 
     // end jquery

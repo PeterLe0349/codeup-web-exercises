@@ -3,6 +3,7 @@
 }
 
 .bannerTop {
-    height: 100px;
+    /*height: 90px;*/
     background-color: darkgray;
+    align-content: center;
 }
