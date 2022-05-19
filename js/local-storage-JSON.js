@@ -43,26 +43,16 @@ $(document).ready(function(){
  let retrievedObject;
  if(doesExist){
      console.log("It exist");
-     retrievedObject = localStorage.getItem("toolObjectArray");
+     retrievedObject = JSON.parse((localStorage.getItem("toolObjectArray")));
  }else{
      console.log("It doesn't exist");
  }
+retrievedObject.push({yeah:32, idi:34});
+ localStorage.setItem("newObject", JSON.stringify(retrievedObject));
+ let result = JSON.parse(localStorage.getItem("newObject"));
+    console.log(result);
 
- console.log("Retrieved data: ", JSON.parse(retrievedObject)[0]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // console.log("Retrieved data: ", JSON.parse(retrievedObject));
 
 
 
