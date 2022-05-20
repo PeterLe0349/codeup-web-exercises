@@ -40,6 +40,8 @@ $(document).ready(function(){
             document.getElementById("completeMessage").setAttribute("class", "visible display-4");
             document.getElementById("stopBtn").setAttribute("class", "visible");
             document.getElementById("completeMessage").innerHTML = "GRATS! YOU GOT 40 lives!!!!!";
+            $('#completeMessage').css('background-color', 'white');
+            $('#completeMessage, #messageTitle').css('background-color', 'white');
 
 
                 winMusic.play();

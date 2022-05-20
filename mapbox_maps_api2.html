@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Marker Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JQuery CDN 3.6 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Mapbox CSS -->
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet'/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/mapbox_maps_api.css">
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<!--start container-->
+<div class="container">
+
+    <div class="row">
+        <!--        main row -->
+        <!--    MAIN NAV-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">MAPBOX</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <select id="selectZoom" class="form-select" aria-label="Default select example">
+                            <option selected>Choose Zoom Level</option>
+                            <option value="1">5</option>
+                            <option value="2">15</option>
+                            <option value="3">20</option>
+                        </select>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button id="leftBtn" type="button" class="btn btn-primary text-nowrap">Hide M</button>
+                            <button id="wowBtn" type="button" class="btn btn-secondary">Woohoo</button>
+                            <button id="rightBtn" type="button" class="btn btn-primary text-nowrap">Show M</button>
+                        </div>
+
+
+                        <a class="nav-link text-nowrap" href="#">Hide Markers</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--        end navbar-->
+        <div class="col-12 input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter address to locate"
+                   aria-label="Recipient's username" aria-describedby="button-addon2" id="inputLocation">
+            <button class="btn btn-outline-secondary" type="button" id="submitLocation">Pinpoint</button>
+        </div>
+        <h1 class="text-center">My First Mapbox Map!</h1>
+
+        <!-- The HTML element that serves as the Mapbox container -->
+        <div id='map'></div>
+
+
+        <!--end main row-->
+    </div>
+</div>
+<!--CONTAINER END-->
+<!--CONTAINER END-->
+<!--CONTAINER END-->
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<!-- Mapbox JS -->
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    $(function () {
+        let markerArray = [];
+        let poperArray = [];
+        // for(let i = 0; i< 5; i++){
+        //     markerArray.push(new mapboxgl.Marker());
+        //     poperArray.push(new mapboxgl.Popup());
+        // }
+        let markerCount = 0;
+        var accessToken = MAPBOX_KEY;
+
+        mapboxgl.accessToken = accessToken;
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 15,
+            // center: [-98.4916, 29.4252]
+            // center: [32.7767, 96.7970]
+            center: [-96.77525127552164, 32.792163814661116] //DALLAS
+
+        });
+        let favPlaces = [
+            {
+                name: "Petra and the Beast", address: "601 N Haskell Ave., Dallas, TX 75246",
+                popupHTML: "<img src='img/rest1.jpeg' height='30px' width='30px'><p>Petra and the Beast!</p> <i>Popular destination showcasing farm-to-fork, New American cuisine in snug, unassuming surrounds.  </i>"
+            },
+            {
+                name: "Chubby\'s Restaurant",
+                address: "11331 E NW Hwy #105, Dallas, TX 75238",
+                popupHTML: "<img src='img/rest2.jpeg' height='30px' width='30px'><p>Chubby\'s Restaurant</p><i>Local mini-chain diner serving classic comfort food & Tex-Mex fare in a modest, family setting.</i>"
+            },
+            {
+                name: "Pioneer Restaurant",
+                address: "306 109th St, Arlington, TX 76011",
+                popupHTML: "<img src='img/rest3.jpeg' height='30px' width='30px'><p>Pioneeer Restaurant!</p><i>Classic breakfast & lunch chow at a longtime, family-run diner with a kids' menu & daily specials.</i>"
+            },
+        ];
+
+
+        function placeMarkerAndPopup(info, token, map) {
+            markerArray.push(new mapboxgl.Marker());
+            poperArray.push(new mapboxgl.Popup());
+            geocode(info.address, token).then(function(coordinates) {
+                // console.log(coordinates);
+                // console.log(info);
+                poperArray[markerCount].setHTML(info.popupHTML);
+                markerArray[markerCount].setLngLat(coordinates)
+                    .addTo(map)
+                    .setPopup(poperArray[markerCount]);
+                // console.log(markerArray[markerCount]);
+                markerCount++;
+            });
+        }
+
+
+
+        favPlaces.forEach((element) =>
+            placeMarkerAndPopup(element, accessToken, map));
+
+        $('#selectZoom').change(function (e) {
+            let choice = e.target.value;
+            if (choice === '1') {
+                map.setZoom(5);
+            } else if (choice === '2') {
+                map.setZoom(15);
+            } else if (choice === '3') {
+                map.setZoom(20);
+            }
+            console.log(choice);
+        });
+        let locate = '';
+        let coordLat;
+        let coordLong;
+        let addString;
+        $('#submitLocation').click(function (e) {
+            locate = document.getElementById('inputLocation').value;
+            // console.log(locate);
+            geocode(locate, MAPBOX_KEY).then(function (result) {
+                // console.log(result);
+                coordLat = result[0];
+                coordLong = result[1];
+                console.log("The Geo results are: " + coordLong + " & " + coordLat);
+                map.setCenter(result);
+                map.setZoom(20);
+                reverseGeocode({lng: coordLat, lat: coordLong}, MAPBOX_KEY).then(function (results) {
+                    // logs the address for The Alamo
+                    addString = results;
+                    console.log("Reverse Geo Address: " + results);
+                    placeMarkerAndPopup({address: locate, popupHTML: results}, accessToken, map)
+                });
+
+            });
+        });
+        $('#leftBtn').click(function(){
+            // poperArray[0].setHTML("CONTRA!!!o");
+            // markerArray[0].setPopup(poperArray[0]);
+            // markerArray[0].color('green');
+            // markerArray[0].style.visibility = "hidden";
+            markerArray.forEach((element) => element.getElement().style.visibility = "hidden");
+
+            // console.log(typeof markerArray[1].getElement());
+        })
+
+        $('#rightBtn').click(function(){
+            // poperArray[0].setHTML("CONTRA!!!o");
+            // markerArray[0].setPopup(poperArray[0]);
+            // markerArray[0].color('green');
+            // markerArray[0].style.visibility = "hidden";
+            markerArray.forEach((element) => element.getElement().style.visibility = "visible");
+            // console.log(typeof markerArray[1].getElement());
+        })
+
+        $('#wowBtn').click(function(){
+            // poperArray[0].setHTML("CONTRA!!!o");
+            // markerArray[0].setPopup(poperArray[0]);
+            // markerArray[0].color('green');
+            // markerArray[0].style.visibility = "hidden";
+
+            markerArray.forEach((element) =>
+                element.getElement().innerHTML = `<img src="img/deathNote.png" alt="DN" width="30" height="40">`);
+            // console.log(typeof markerArray[1].getElement());
+        })
+
+        
+
+
+    })
+</script>
+</body>
+</html>

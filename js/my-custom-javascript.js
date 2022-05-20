@@ -36,7 +36,7 @@ $(document).ready(function() {
     //     );
 
     $('h1').click(function(){
-        $('h1').css('background-color', 'red');
+        $(this).css('background-color', 'red');
     });
 
     $('p').dblclick(function(){
