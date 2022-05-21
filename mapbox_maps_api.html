@@ -21,6 +21,7 @@
             /* the width and height may be set to any size */
             width: 100%;
             height: 400px;
+            position: relative;
         }
     </style>
 </head>
@@ -175,7 +176,7 @@
                 coordLong = result[1];
                 console.log("The Geo results are: " + coordLong + " & " + coordLat);
                 map.setCenter(result);
-                map.setZoom(20);
+                map.setZoom(13);
                 reverseGeocode({lng: coordLat, lat: coordLong}, MAPBOX_KEY).then(function (results) {
                     // logs the address for The Alamo
                     addString = results;
@@ -186,37 +187,45 @@
             });
         });
         $('#leftBtn').click(function(){
-            // poperArray[0].setHTML("CONTRA!!!o");
-            // markerArray[0].setPopup(poperArray[0]);
-            // markerArray[0].color('green');
-            // markerArray[0].style.visibility = "hidden";
             markerArray.forEach((element) => element.getElement().style.visibility = "hidden");
 
-            // console.log(typeof markerArray[1].getElement());
         })
 
         $('#rightBtn').click(function(){
-            // poperArray[0].setHTML("CONTRA!!!o");
-            // markerArray[0].setPopup(poperArray[0]);
-            // markerArray[0].color('green');
-            // markerArray[0].style.visibility = "hidden";
             markerArray.forEach((element) => element.getElement().style.visibility = "visible");
-            // console.log(typeof markerArray[1].getElement());
         })
 
         $('#wowBtn').click(function(){
-            // poperArray[0].setHTML("CONTRA!!!o");
-            // markerArray[0].setPopup(poperArray[0]);
-            // markerArray[0].color('green');
-            // markerArray[0].style.visibility = "hidden";
+            //CHANGE LOCATION
+            let x = markerArray[0].getLngLat().lng;
+            let y = markerArray[0].getLngLat().lat;
+               let z = 0;
+               let zz = 0;
+                let intID = setInterval(function(){
+                    if(z > 5){
+                        clearInterval(intID);
+                        z = 0;
+                    }
+                        setTimeout(function(){
 
-            markerArray.forEach((element) =>
-                element.getElement().innerHTML = `<img src="img/deathNote.png" alt="DN" width="30" height="40">`);
-            // console.log(typeof markerArray[1].getElement());
+                            markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat + .001])
+                                .addTo(map);
+                            // setTimeout(function() {
+                            //     markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat - .001])
+                            //         .addTo(map);
+                            // },1000);
+                        },1000);
+                        z++;
+            },1000);
+
+// CHANGE ICON
+//             markerArray.forEach((element) =>
+//                 element.getElement().innerHTML = `<img src="img/deathNote.png" alt="DN" width="30" height="40">`);
         })
 
 
 
+// const longlat = markerArray[0].getLngLat();
 
     })
 </script>
