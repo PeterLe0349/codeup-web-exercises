@@ -5,7 +5,7 @@ $(document).ready(function(){
       $('dd').toggleClass("invisible");
    });
    $('dt').click(function(){
-      $(this).next().toggleClass("invisible");
+      $(this).toggleClass("highlight");
    });
 
    $('#yellowBtn').click(function(e){
@@ -57,7 +57,19 @@ function swapRight(){
 function getRandom(max, min){
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+// block cut copy paste on site
+$('body').bind('cut copy paste', function(event){
+   event.preventDefault();
+});
 
 
+
+// let something = document.getElementById('state-parks-marvel').innerText
+//    console.log($('#state-parks-texas').css('background-color'));
+//    if($('#state-parks-texas').css('background-color') === 'rgba(0, 0, 0, 0)' ){
+//       console.log("HI");
+//    } ;
+
+   // rgba(0, 0, 0, 0)
 
 });

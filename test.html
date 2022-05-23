@@ -22,14 +22,53 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <!--Personal custom JS script-->
+<script src="js/keys.js"></script>
 <script>
-    setTimeout(function(){
-        console.log(1);
-        setTimeout(function(){
-            console.log(2);
-        },1000)
-    },1000);
+    // $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     q:     "San Antonio, US"
+    // }).done(function(data) {
+    //     console.log((data));
+    // });
+
+    // $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     id:     4726206,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log(data);
+    // });
+    //
+    // $.get("http://api.openweathermap.org/data/2.5/weather", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     lat:    29.423017,
+    //     lon:   -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log('current weather', data);
+    // });
+    //
+    // $.get("http://api.openweathermap.org/data/2.5/forecast", {
+    //     APPID: OPEN_WEATHER_APPID,
+    //     lat:    29.423017,
+    //     lon:   -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log('5 day forecast', data);
+    // });
+
+    $.get("http://api.openweathermap.org/data/2.5/onecall", {
+        APPID: OPEN_WEATHER_APPID,
+        lat:    29.423017,
+        lon:   -98.48527,
+        units: "imperial"
+    }).done(function(data) {
+        console.log('The entire response:', data);
+        console.log('Diving in - here is current information: ', data.current);
+        console.log('A step further - information for tomorrow: ', data.daily[1]);
+    });
 </script>
+
 
 </body>
 </html>

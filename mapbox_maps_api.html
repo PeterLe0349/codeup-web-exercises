@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- Mapbox CSS -->
-
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet'/>
 
     <!-- Custom CSS -->
@@ -197,30 +196,30 @@
 
         $('#wowBtn').click(function(){
             //CHANGE LOCATION
-            let x = markerArray[0].getLngLat().lng;
-            let y = markerArray[0].getLngLat().lat;
-               let z = 0;
-               let zz = 0;
-                let intID = setInterval(function(){
-                    if(z > 5){
-                        clearInterval(intID);
-                        z = 0;
-                    }
-                        setTimeout(function(){
-
-                            markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat + .001])
-                                .addTo(map);
-                            // setTimeout(function() {
-                            //     markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat - .001])
-                            //         .addTo(map);
-                            // },1000);
-                        },1000);
-                        z++;
-            },1000);
+            // let x = markerArray[0].getLngLat().lng;
+            // let y = markerArray[0].getLngLat().lat;
+            //    let z = 0;
+            //    let zz = 0;
+            //     let intID = setInterval(function(){
+            //         if(z > 5){
+            //             clearInterval(intID);
+            //             z = 0;
+            //         }
+            //             setTimeout(function(){
+            //
+            //                 markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat + .001])
+            //                     .addTo(map);
+            //                 // setTimeout(function() {
+            //                 //     markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat - .001])
+            //                 //         .addTo(map);
+            //                 // },1000);
+            //             },1000);
+            //             z++;
+            // },1000);
 
 // CHANGE ICON
-//             markerArray.forEach((element) =>
-//                 element.getElement().innerHTML = `<img src="img/deathNote.png" alt="DN" width="30" height="40">`);
+            markerArray.forEach((element) =>
+                element.getElement().innerHTML = `<img src="img/deathNote.png" alt="DN" width="30" height="40">`);
         })
 
 

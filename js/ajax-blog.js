@@ -2,6 +2,7 @@
 $(document).ready(function(){
     let blogCounter = 0;
     let blogDisplay = document.getElementById('blogsContainer');
+    let blogData;
 
     $.ajax({
         url: "../data/blog.json",
@@ -10,12 +11,16 @@ $(document).ready(function(){
         // async: false,
         dataType: "json"
     }).done(function(data) {
+        blogData = data;
         for(let blog of data){
+            console.log(blog);
             makeBlog(blog);
         }
     });
 
-
+    // for(let blog of blogData){
+    //         makeBlog(blog);
+    //     }
 
     function makeBlog(blogObject){
         let rowData = '';

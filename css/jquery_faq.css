@@ -1,3 +1,10 @@
+:root{
+    --purple: purple;
+    --blue1: lightblue;
+    --blue2: paleturquoise;
+
+}
+
 .invisible {
     visibility: hidden !important;
 }
@@ -8,4 +15,17 @@ body{
 
 img {
     border: 9px solid rebeccapurple;
+}
+
+.highlight {
+    background-color: yellow;
+
+}
+
+.blue1 {
+    color: var(--blue1);
+}
+
+.blue2 {
+    color: var(--blue2);
 }
