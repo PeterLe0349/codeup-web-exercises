@@ -1,0 +1,25 @@
+:root {
+    --purple: purple;
+    font-size: 2.5em;
+}
+
+body {
+
+}
+
+.calculatorBorder {
+    border: 3px solid black;
+}
+
+.col, .col-6{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.operator {
+    background-color: rgba(255, 165, 0, 0.29);
+}
+
+.highlighter {
+    background-color: rgba(255, 255, 0, 0.25);
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JQuery CDN 3.6 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!--   personal custom CSS-->
+    <link rel="stylesheet" href="css/calculator.css">
+
+    <title>Fierem's Calculator</title>
+</head>
+<body>
+<h4 class="text-center">Fierem's Calculator</h4>
+<div class="container w-50 calculatorBorder">
+<!--        main container-->
+<!--    input row-->
+    <div class="row">
+        <input type="text" id="inputNumber" class="text-end" placeholder="0">
+    </div>
+<!--    c add percent divide -->
+<div class="row">
+    <div class="col">C</div>
+    <div class="col">+/-</div>
+    <div class="col">%</div>
+    <div class="col operator">/</div>
+</div>
+<!--789 x -->
+    <div class="row">
+        <div class="col">7</div>
+        <div class="col">8</div>
+        <div class="col">9</div>
+        <div class="col operator">*</div>
+    </div>
+<!--456 - -->
+    <div class="row">
+        <div class="col">4</div>
+        <div class="col">5</div>
+        <div class="col">6</div>
+        <div class="col operator">-</div>
+    </div>
+<!--123 +-->
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col operator">+</div>
+    </div>
+<!--    0. = -->
+    <div class="row">
+        <div class="col-6">0</div>
+        <div class="col">.</div>
+        <div class="col operator" id="equalsCalc">=</div>
+    </div>
+
+
+
+
+<!--        end main container-->
+</div>
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<!--Personal custom JS script-->
+<script src="js/calculator.js"></script>
+
+</body>
+</html>
+
