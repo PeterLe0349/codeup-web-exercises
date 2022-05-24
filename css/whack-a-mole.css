@@ -1,0 +1,31 @@
+:root {
+    --purple: purple;
+}
+
+body {
+    /*color: var(--purple);*/
+    background-color: transparent;
+}
+
+.col-4 {
+    border: 1px solid black;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+}
+
+.cody {
+    background-image: url("../img/codey-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+
+}
+
+.mainBackground {
+    background-image: url("../img/deathNote.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
