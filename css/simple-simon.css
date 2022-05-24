@@ -1,0 +1,45 @@
+:root {
+    --red: red;
+    --purple: purple;
+    --yellow: yellow;
+    --green: green;
+}
+
+body{
+    /*color: var(--red);*/
+}
+
+.boxContainer{
+    width: 350px;
+    height: 350px;
+}
+
+.boxy {
+    height: 150px;
+    width: 50%;
+    margin: auto;
+}
+
+.redBox {
+    background-color: var(--red);
+}
+
+.purpleBox {
+    background-color: var(--purple);
+}
+
+.yellowBox {
+    background-color: var(--yellow);
+}
+
+.greenBox {
+    background-color: var(--green);
+}
+
+.borderBlack {
+    border: 9px solid black;
+}
+
+.highBox {
+    background-color: hotpink; !important;
+}
