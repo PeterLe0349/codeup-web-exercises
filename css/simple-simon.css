@@ -18,6 +18,7 @@ body{
     height: 150px;
     width: 50%;
     margin: auto;
+    padding: 3px;
 }
 
 .redBox {
@@ -43,3 +44,8 @@ body{
 .highBox {
     background-color: hotpink; !important;
 }
+
+.highBox2 {
+    background-color: greenyellow; !important;
+}
+

@@ -1,0 +1,8 @@
+.mapSize {
+    height: 500px;
+    width: 100%;
+}
+
+.squeezy{
+    overflow: auto;
+}
