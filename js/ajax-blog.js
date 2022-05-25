@@ -25,14 +25,14 @@ $(document).ready(function(){
     function makeBlog(blogObject){
         let rowData = '';
         blogCounter++;
-        rowData += `<div className="card text-center">`;
-        rowData += `<div className="card-header">Blog #${blogCounter}</div> `;
-        rowData += `<div className="card-body">`;
-        rowData += `<h5 className="card-title">${blogObject.title}</h5>`;
-        rowData += ` <p className="card-text">${blogObject.content}</p>`;
-        rowData += `<a href="#" className="btn btn-primary">${blogObject.categories}</a>`;
+        rowData += `<div class="card text-center">`;
+        rowData += `<div class="card-header postTitle">Blog #${blogCounter}</div> `;
+        rowData += `<div class="card-footer postDate"> ${blogObject.date} </div> `;
+        rowData += `<div class="card-body bg-light">`;
+        rowData += `<h5 class="card-title">${blogObject.title}</h5>`;
+        rowData += ` <p class="card-text bg-light">${blogObject.content}</p>`;
+        rowData += `<a href="#" class="btn btn-primary">${blogObject.categories}</a>`;
         rowData += `</div>`;
-        rowData += `<div className="card-footer text-muted"> ${blogObject.date} </div> `;
         rowData += `</div>`;
         rowData += `<hr>`;
         blogDisplay.innerHTML += rowData;

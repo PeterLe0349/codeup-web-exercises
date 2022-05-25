@@ -30,5 +30,19 @@
             "tool"
         ],
         "price": 10
-    }
+    }, {
+    "title": "Tank",
+    "quantity": 3,
+    "categories": [
+        "demolition", "warfare"
+    ],
+    "price": 9999999
+}, {
+    "title": "Pikachu",
+    "quantity": 1,
+    "categories": [
+        "emo", "backup-power"
+    ],
+    "price": 123
+}
 ]

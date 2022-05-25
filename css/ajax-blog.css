@@ -4,6 +4,16 @@
 
 .bannerTop {
     /*height: 90px;*/
-    background-color: darkgray;
+    background-color: #FA5A34;
     align-content: center;
+}
+
+.postTitle {
+    background-color: #BA4527; !important;
+    color: white; !important;
+}
+
+.postDate {
+    background-color: #7A2D1A; !important;
+    color: white; !important;
 }

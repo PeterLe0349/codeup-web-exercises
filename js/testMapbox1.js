@@ -25,6 +25,7 @@ $(document).ready(function(){
         markerArray[markerCount].addTo(map);
         console.log(markerArray[markerCount]);
         markerCount++;
+        return markerArray[markerCount-1];
     }
 //add popper to existing marker
     $('#testBtn').click(function(){

@@ -10,20 +10,79 @@
     <script src="https://code.jquery.com/jquery-2.2.4.js"
             integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <!--   personal custom CSS-->
+    <link rel="stylesheet" href="css/ajax-store.css">
     <title>Online Store</title>
-    <style>
-        table, th, td{
-            border: 2px solid;
-            border-collapse: collapse;
-            padding: 2px;
-        }
-    </style>
 </head>
 <body>
 
 <div class="container">
 <!--MAIN CONTAINER-->
-    <h1 class="text-center display-3">My Tool Store</h1>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Peter City Gym</h1>
+            <p>Top Rank Pokemon Trainer</p>
+
+        </div>
+    </div>
+    <div class="container d-flex justify-content-between">
+    <form action="" id="myForm">
+        <button type="button" id="refreshBtn" class="btn btn-warning mb-3 ">Refresh Inventory</button>
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+
+    </form>
+    </div>
+
+    <form class="row ">
+        <div class="col-auto">
+            <label for="staticEmail2" class="visually-hidden">Email</label>
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="peter@pokemon.com">
+        </div>
+        <div class="col-auto d-flex justify-content-center">
+            <label for="pokemonID" class=></label>
+            <input class="form-control" type="text" id="pokemonID" placeholder="Choose your pokemon">
+        </div>
+        <div class="col-auto">
+            <button id="pokeSubBtn" type="button" class="btn btn-success ">Request Pokemon to train</button>
+        </div>
+    </form>
+
+    <table id="pokeStore" class="table table-dark table-striped table-bordered border-danger">
+        <thead class="table-dark">
+        <tr class="table-danger text-danger">
+            <th>Pokemon Name</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Moves</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody id="pokeMonsters"></tbody>
+    </table>
 
 <table id="products" class="table table-striped">
     <thead class="table-dark">
@@ -38,6 +97,9 @@
 </table>
 
 
+
+
+<div class="container" id="displaySW"></div>
 <!--END MAIN CONTAINER-->
 </div>
 
@@ -52,10 +114,10 @@
         url: "data/inventory.json",
         type: "GET",
         data: "{}",
-        async: false,
+        // async: false,
         dataType: "json"
     }).done(function(data) {
-
+        console.log(data);
         let html = '';
         for(let i = 0; i< data.length; i++){
             html += makeProductRow(data[i]);
@@ -66,9 +128,6 @@
     });
 
 
-
-
-    // console.log(dataBank[0]);
     function makeProductRow(productObject){
         let rowData = '';
         rowData += `<tr> <td> ${productObject.title} </td>`;
@@ -90,6 +149,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <!--Personal custom JS script-->
-
+<script src="js/ajax-store.js"></script>
 </body>
 </html>
