@@ -100,27 +100,6 @@ $(document).ready(function(){
     })
 
         $('#wowBtn').click(function(){
-        //CHANGE LOCATION
-        // let x = markerArray[0].getLngLat().lng;
-        // let y = markerArray[0].getLngLat().lat;
-        //    let z = 0;
-        //    let zz = 0;
-        //     let intID = setInterval(function(){
-        //         if(z > 5){
-        //             clearInterval(intID);
-        //             z = 0;
-        //         }
-        //             setTimeout(function(){
-        //
-        //                 markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat + .001])
-        //                     .addTo(map);
-        //                 // setTimeout(function() {
-        //                 //     markerArray[0].setLngLat([x, markerArray[0].getLngLat().lat - .001])
-        //                 //         .addTo(map);
-        //                 // },1000);
-        //             },1000);
-        //             z++;
-        // },1000);
 
 // CHANGE ICON
         markerArray.forEach((element) =>
@@ -231,12 +210,19 @@ $(document).ready(function(){
         coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
     }
 
-    markerArray[markerCount].on('dragend', onDragEnd);
+    // markerArray[markerCount].on('dragend', onDragEnd);
 
+// map.flyto({center: [obj.lng, obj.lat]})
 
-
-
+// let LNGLAT;
 // const longlat = markerArray[0].getLngLat();
+//     marker.on('dragend', function(){
+//         LNGLAT = marker.getLngLat();
+//         reverseGeocode(LNGLAT, MAPBOX_KEY).then(function(data){
+//             document.getElementById('placeData').innerHTML = data;
+//         })
+//
+//     })
 
 
 

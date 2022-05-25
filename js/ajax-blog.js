@@ -25,7 +25,7 @@ $(document).ready(function(){
     function makeBlog(blogObject){
         let rowData = '';
         blogCounter++;
-        rowData += `<div class="card text-center">`;
+        rowData += `<div class="col-6"><div class="card text-center">`;
         rowData += `<div class="card-header postTitle">Blog #${blogCounter}</div> `;
         rowData += `<div class="card-footer postDate"> ${blogObject.date} </div> `;
         rowData += `<div class="card-body bg-light">`;
@@ -34,7 +34,7 @@ $(document).ready(function(){
         rowData += `<a href="#" class="btn btn-primary">${blogObject.categories}</a>`;
         rowData += `</div>`;
         rowData += `</div>`;
-        rowData += `<hr>`;
+        rowData += `</div>`;
         blogDisplay.innerHTML += rowData;
     }
 

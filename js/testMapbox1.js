@@ -11,22 +11,34 @@ $(document).ready(function(){
         zoom: 9 // starting zoom
     });
     // Set marker options.
-    createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
-    createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
-    createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
+    // createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
+    // createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
+    // createMarker(makeRandomNumber(85,1), makeRandomNumber(85,1));
 
     function createMarker(coordLng, coordLat){
         const marker = new mapboxgl.Marker({
             color: "red",
-            draggable: true
-        }).setLngLat([coordLng, coordLat])
+            draggable: false
+        }).setLngLat([coordLng, coordLat]);
             // .addTo(map);
+        // setDraggable(true)
+        // marker.on
+        var alamoPopup = new mapboxgl.Popup()
+            .setHTML("<p>Remember The Alamo!</p>");
+        marker.setPopup(alamoPopup)
         markerArray.push(marker);
         markerArray[markerCount].addTo(map);
         console.log(markerArray[markerCount]);
         markerCount++;
         return markerArray[markerCount-1];
     }
+
+
+
+    createMarker(-98.4916,29.4260 );
+
+
+
 //add popper to existing marker
     $('#testBtn').click(function(){
         ((markerArray.forEach(function(element){
@@ -35,8 +47,8 @@ $(document).ready(function(){
     });
 
     geocode("Dallas, TX", MAPBOX_KEY).then(function(result) {
-        console.log(result[0]);
-        dataDisplay.innerHTML = result;
+        console.log(result);
+        dataDisplay.innerHTML = "Data from geocode: "+ result;
         map.setCenter(result);
         map.setZoom(20);
     });

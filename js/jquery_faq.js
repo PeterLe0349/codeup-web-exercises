@@ -72,4 +72,6 @@ $('body').bind('cut copy paste', function(event){
 
    // rgba(0, 0, 0, 0)
 
+
+   // end jquery
 });

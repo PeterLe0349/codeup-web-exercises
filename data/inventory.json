@@ -45,4 +45,13 @@
     ],
     "price": 123
 }
+, {
+    "title": "Peter",
+    "quantity": 1,
+    "categories": [
+        "nerdy", "submariner"
+    ],
+    "price": 999
+}
+
 ]

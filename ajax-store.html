@@ -74,7 +74,7 @@
     <table id="pokeStore" class="table table-dark table-striped table-bordered border-danger">
         <thead class="table-dark">
         <tr class="table-danger text-danger">
-            <th>Pokemon Name</th>
+            <th class="text-nowrap">Pokemon Name</th>
             <th>Height</th>
             <th>Weight</th>
             <th>Moves</th>
@@ -83,6 +83,25 @@
         </thead>
         <tbody id="pokeMonsters"></tbody>
     </table>
+
+    <div class="col-auto d-flex justify-content-center">
+        <label for="digiID" class=></label>
+        <input class="form-control" type="text" id="digiID" placeholder="Choose your digimon">
+    </div>
+    <div class="col-auto">
+        <button id="digiSubBtn" type="button" class="btn btn-success ">Request Digimon to train</button>
+    </div>
+    <table id="digiStore" class="table table-secondary table-striped table-bordered border-secondary">
+        <thead class="table-secondary">
+        <tr class="table-secondarytable-secondary">
+            <th class="text-nowrap">Digimon Name</th>
+            <th>Level</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody id="digiMonsters"></tbody>
+    </table>
+
 
 <table id="products" class="table table-striped">
     <thead class="table-dark">
@@ -110,32 +129,25 @@
     "use strict";
     let dataBank;
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    $.ajax({
-        url: "data/inventory.json",
-        type: "GET",
-        data: "{}",
-        // async: false,
-        dataType: "json"
-    }).done(function(data) {
-        console.log(data);
-        let html = '';
-        for(let i = 0; i< data.length; i++){
-            html += makeProductRow(data[i]);
-        }
-        $('#insertProducts').html(html);
+    // $.ajax({
+    //     url: "data/inventory.json",
+    //     type: "GET",
+    //     data: "{}",
+    //     // async: false,
+    //     dataType: "json"
+    // }).done(function(data) {
+    //     console.log(data);
+    //     let html = '';
+    //     for(let i = 0; i< data.length; i++){
+    //         html += makeProductRow(data[i]);
+    //     }
+    //     $('#insertProducts').html(html);
+    //
+    //
+    // });
 
 
-    });
 
-
-    function makeProductRow(productObject){
-        let rowData = '';
-        rowData += `<tr> <td> ${productObject.title} </td>`;
-        rowData += `<td> ${productObject.quantity} </td>`;
-        rowData += `<td> ${productObject.price} </td>`;
-        rowData += `<td> ${productObject.categories} </td>`;
-        return rowData;
-    }
 
 
     // TODO: Take the data from inventory.json and append it to the products table
