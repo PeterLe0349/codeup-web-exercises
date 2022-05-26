@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
     mainMarker.setLngLat([-96.7970, 32.7767]);
     mainMarker.addTo(map);
-    changeWeather('seattle, utah');
+    changeWeather('dallas, tx');
 
 //get coordinates when clicked
     $('#pinpointBTN').click(function(){
@@ -47,7 +47,7 @@ $(document).ready(function(){
     });
 
 
-    makeHeader('Welcome to Mapbox');
+    makeHeader('Welcome to WeatherBox');
 
     function makeHeader(str){
         $('#headID').html(`<h1 class="text-center">${str}</h1> `);
