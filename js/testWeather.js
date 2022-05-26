@@ -99,32 +99,32 @@ $(document).ready(function(){
             mainMarker.setLngLat(result);
             console.log(result);
             map.flyTo({center: [result[0],result[1]] ,zoom: 10 });
-            $.get("http://api.openweathermap.org/data/2.5/forecast", {
-                APPID: OPEN_WEATHER_APPID,
-                lat:    result[1],
-                lon:   result[0],
-                units: "imperial"
-            }).done(function(data) {
-                console.log('5 day forecast', data);
-                document.getElementById('dayIcon1').src = changeIcons(data.list[0]);
-                document.getElementById('dayNumber1').innerHTML = data.list[0].dt_txt.split(' ')[0];
-                document.getElementById('dayInfo1').innerHTML = dayInfo(data.list[0]);
+                $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                    APPID: OPEN_WEATHER_APPID,
+                    lat:    result[1],
+                    lon:   result[0],
+                    units: "imperial"
+                }).done(function(data) {
+                    console.log('5 day forecast', data);
+                    document.getElementById('dayIcon1').src = changeIcons(data.list[0]);
+                    document.getElementById('dayNumber1').innerHTML = data.list[0].dt_txt.split(' ')[0];
+                    document.getElementById('dayInfo1').innerHTML = dayInfo(data.list[0]);
 
-                document.getElementById('dayIcon2').src = changeIcons(data.list[8]);
-                document.getElementById('dayNumber2').innerHTML = data.list[8].dt_txt.split(' ')[0];
-                document.getElementById('dayInfo2').innerHTML = dayInfo(data.list[8]);
+                    document.getElementById('dayIcon2').src = changeIcons(data.list[8]);
+                    document.getElementById('dayNumber2').innerHTML = data.list[8].dt_txt.split(' ')[0];
+                    document.getElementById('dayInfo2').innerHTML = dayInfo(data.list[8]);
 
-                document.getElementById('dayIcon3').src = changeIcons(data.list[16]);
-                document.getElementById('dayNumber3').innerHTML = data.list[16].dt_txt.split(' ')[0];
-                document.getElementById('dayInfo3').innerHTML = dayInfo(data.list[16]);
+                    document.getElementById('dayIcon3').src = changeIcons(data.list[16]);
+                    document.getElementById('dayNumber3').innerHTML = data.list[16].dt_txt.split(' ')[0];
+                    document.getElementById('dayInfo3').innerHTML = dayInfo(data.list[16]);
 
-                document.getElementById('dayIcon4').src = changeIcons(data.list[24]);
-                document.getElementById('dayNumber4').innerHTML = data.list[24].dt_txt.split(' ')[0];
-                document.getElementById('dayInfo4').innerHTML = dayInfo(data.list[24]);
+                    document.getElementById('dayIcon4').src = changeIcons(data.list[24]);
+                    document.getElementById('dayNumber4').innerHTML = data.list[24].dt_txt.split(' ')[0];
+                    document.getElementById('dayInfo4').innerHTML = dayInfo(data.list[24]);
 
-                document.getElementById('dayIcon5').src = changeIcons(data.list[32]);
-                document.getElementById('dayNumber5').innerHTML = data.list[32].dt_txt.split(' ')[0];
-                document.getElementById('dayInfo5').innerHTML = dayInfo(data.list[32]);
+                    document.getElementById('dayIcon5').src = changeIcons(data.list[32]);
+                    document.getElementById('dayNumber5').innerHTML = data.list[32].dt_txt.split(' ')[0];
+                    document.getElementById('dayInfo5').innerHTML = dayInfo(data.list[32]);
             });
         });
     }
@@ -135,7 +135,7 @@ $(document).ready(function(){
     }
 
     function dayInfo(elementData){
-        return `Low: ${elementData.main.temp_min}  / High: ${elementData.main.temp_max} <br>` +
+       return `Low: ${elementData.main.temp_min}  / High: ${elementData.main.temp_max} <br>` +
             `Description: ${elementData.weather[0].description} <br>` +
             `Humidity:  ${elementData.main.humidity} <br>`+
             `Wind:  ${elementData.wind.speed} <br>`+

@@ -11,3 +11,15 @@ body {
     height: 70vh;
     width: 100vw;
 }
+
+.weatherBoxSize {
+    height: 40vh;
+    width: 100vw;
+}
+
+.borderBlack {
+    border: 9px solid black;
+}
+
+.weatherImage{
+}
