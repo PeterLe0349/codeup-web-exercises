@@ -210,19 +210,6 @@ $(document).ready(function(){
         coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
     }
 
-    markerArray[markerCount].on('dragend', onDragEnd);
-
-map.flyto({center: [obj.lng, obj.lat]})
-
-let LNGLAT;
-const longlat = markerArray[0].getLngLat();
-    marker.on('dragend', function(){
-        LNGLAT = marker.getLngLat();
-        reverseGeocode(LNGLAT, MAPBOX_KEY).then(function(data){
-            document.getElementById('placeData').innerHTML = data;
-        })
-
-    })
 
 
 
