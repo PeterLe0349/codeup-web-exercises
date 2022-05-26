@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Petra and the Beast", "address": "601 N Haskell Ave., Dallas, TX 75246",
+    "popupHTML": "<img src='img/rest1.jpeg' height='30px' width='30px'><p>Petra and the Beast!</p> <i>Popular destination showcasing farm-to-fork, New American cuisine in snug, unassuming surrounds.  </i>"
+  },
+  {
+    "name": "Chubby's Restaurant",
+    "address": "11331 E NW Hwy #105, Dallas, TX 75238",
+    "popupHTML": "<img src='img/rest2.jpeg' height='30px' width='30px'><p>Chubby's Restaurant</p><i>Local mini-chain diner serving classic comfort food & Tex-Mex fare in a modest, family setting.</i>"
+  },
+  {
+    "name": "Pioneer Restaurant",
+    "address": "306 109th St, Arlington, TX 76011",
+    "popupHTML": "<img src='img/rest3.jpeg' height='30px' width='30px'><p>Pioneeer Restaurant!</p><i>Classic breakfast & lunch chow at a longtime, family-run diner with a kids' menu & daily specials.</i>"
+  }
+]

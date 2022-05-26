@@ -10,5 +10,7 @@ $.ajax("../data/blog.json").done(function(data, status){
 
 
 
+
+
 // end jquery
 });

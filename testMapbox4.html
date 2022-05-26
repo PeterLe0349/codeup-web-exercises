@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JQuery CDN 3.6 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!--    mapbox -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+
+    <!--   personal custom CSS-->
+    <link rel="stylesheet" href="css/mapbox_maps_api.css">
+    <title>Hello, Mapbox!</title>
+</head>
+<body>
+<div id="headID"></div>
+<!--Navbar-->
+<div class="container" id="navID">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mapbox</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <button class="btn btn-danger text-nowrap" id="showID" type="button">Show Markers</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary text-nowrap" type="button" id="hideID">Hide Markers</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-success text-nowrap" type="button" id="woohooID">Woohoo</button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Zoom Map
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">5</a></li>
+                            <li><a class="dropdown-item" href="#">15</a></li>
+                            <li><a class="dropdown-item" href="#">20</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="form-control input-group">
+                    <input class="form-control" type="search" placeholder="address" aria-label="Search" id="pinpointInput">
+                    <button class="btn btn-outline-success" type="button" id="pinpointBTN">Pinpoint</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--end navbar-->
+<!--input location data -->
+<div class="container row" id=>
+    <div class="col-3">Geocode results: </div>
+    <div class="col-9" id="geocodeResult"></div>
+</div>
+<!--mapbox container-->
+<div id="map" class="mapSize"></div>
+<!--end mapbox container-->
+
+
+
+
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<!--Personal custom JS script-->
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/testMapbox4.js"></script>
+</body>
+</html>
+

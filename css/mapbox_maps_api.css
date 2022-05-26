@@ -1,3 +1,13 @@
 :root {
     --purple: purple;
+    --black: rgb(8, 10, 8);
+}
+
+body {
+    color: var(--black);
+}
+
+.mapSize {
+    height: 70vh;
+    width: 100vw;
 }
