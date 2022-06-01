@@ -1,27 +1,43 @@
-:root{
+:root {
     --purple: purple;
-    --blue1: lightblue;
-    --blue2: paleturquoise;
-
+    --black: rgb(8, 10, 8);
 }
 
-.cardHeight {
-    height: 200px;
+body {
+    color: var(--black);
+}
+
+.mapSize {
+    height: 70vh;
+    width: 100vw;
+}
+
+.weatherBoxSize {
+    height: 40vh;
+    width: 100vw;
 }
 
 .borderBlack {
-    border: 3px solid black;
+    border: 9px solid rgb(5, 75, 5);
+    border-radius: 30%;
+    background-color: black;
 }
 
-.coordinates {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    bottom: 40px;
-    left: 10px;
-    padding: 5px 10px;
-    margin: 0;
-    font-size: 11px;
-    line-height: 18px;
-    border-radius: 3px;
-    display: none;
+.weatherImage{
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: .9;
+}
+
+h5, p {
+    color: white;
+    font-family: 'Abel', sans-serif;
+
 }

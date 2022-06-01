@@ -13,10 +13,16 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
 
     <!--   personal custom CSS-->
-    <link rel="stylesheet" href="css/mapbox_maps_api.css">
+    <link rel="stylesheet" href="css/weather_map.css">
     <title>Hello, Weatherbox!</title>
 </head>
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="video/forest.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+
 <div id="headID"></div>
 <!--Navbar-->
 <div class="container" id="navID">
@@ -29,13 +35,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <button class="btn btn-danger text-nowrap" id="showID" type="button">Show Markers</button>
+                        <button class="btn btn-danger text-nowrap visually-hidden" id="showID" type="button">Show Markers</button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-primary text-nowrap" type="button" id="hideID">Hide Markers</button>
+                        <button class="btn btn-primary text-nowrap visually-hidden" type="button" id="hideID">Hide Markers</button>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-success text-nowrap" type="button" id="woohooID">Woohoo</button>
+                        <button class="btn btn-success text-nowrap visually-hidden" type="button" id="woohooID">Woohoo</button>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

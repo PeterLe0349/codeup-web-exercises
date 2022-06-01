@@ -14,7 +14,7 @@ $(document).ready(function(){
     });
 
     let mainMarker = new mapboxgl.Marker({
-        color: 'red',
+        color: 'purple',
         draggable: true
     });
     mainMarker.setLngLat([-96.7970, 32.7767]);
@@ -37,17 +37,17 @@ $(document).ready(function(){
     })
 
     // get restaurant map data
-    $.ajax("../data/mapbox.json").done(function(data, status){
-        data.forEach(function(datbit){
-            // console.log(datbit.name);
+    // $.ajax("../data/mapbox.json").done(function(data, status){
+    //     data.forEach(function(datbit){
+    //         // console.log(datbit.name);
+    //
+    //         makeMarker(datbit.address, datbit.popupHTML);
+    //     });
+    //     // console.log("Completed dat from mapbox.json: " + status);
+    // });
 
-            makeMarker(datbit.address, datbit.popupHTML);
-        });
-        // console.log("Completed dat from mapbox.json: " + status);
-    });
 
-
-    makeHeader('Welcome to WeatherBox');
+    // makeHeader('Welcome to WeatherBox');
 
     function makeHeader(str){
         $('#headID').html(`<h1 class="text-center">${str}</h1> `);
