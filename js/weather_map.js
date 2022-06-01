@@ -106,6 +106,9 @@ $(document).ready(function(){
                 units: "imperial"
             }).done(function(data) {
                 console.log('5 day forecast', data);
+                console.log(data.city.name);
+                document.getElementById('pinpointInput').setAttribute('placeholder', data.city.name)
+                document.getElementById('pinpointInput').value = data.city.name;
                 document.getElementById('dayIcon1').src = changeIcons(data.list[0]);
                 document.getElementById('dayNumber1').innerHTML = data.list[0].dt_txt.split(' ')[0];
                 document.getElementById('dayInfo1').innerHTML = dayInfo(data.list[0]);
