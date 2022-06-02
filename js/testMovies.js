@@ -11,7 +11,6 @@ $(document).ready(function(){
                 document.getElementById('movieDisplay').innerHTML = '';
                 movies.forEach( movieObj  => {
                     let count = 0;
-                    let hmm = 1;
                     // do something with the movie object
                     // (movieObj.title = 'hello');
                     // console.log(movieObj);
