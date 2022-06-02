@@ -17,20 +17,57 @@
 <body>
 <div class="container">
     <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Movies DB</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Coming soon |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Now Playing |</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Features
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Actors/Actresses</a></li>
+                                <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Buy BluRays</a></li>
+                            </ul>
+                        </li>
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link disabled">Disabled</a>-->
+<!--                        </li>-->
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search movies db" aria-label="Search" id="searchMovieInput">
+                        <button class="btn btn-outline-light" type="submit" id="searchMovieBtn">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
 <!--        start container row-->
 <!--        start left display-->
-        <div class="col-3" id="displayLeft">
-            <h3>Movie Database</h3>
-            <label for="searchMovie" class="form-label">Movie</label>
-            <input type="text" id="searchMovie" name="searchMovieInput" class="form-control">
-            <button id="searchBtn" type="button">Search Movies</button>
+<!--        <div class="col-3" id="displayLeft">-->
+<!--            <label for="searchMovie" class="form-label">Movie</label>-->
+<!--            <input type="text" id="searchMovie" name="searchMovieInput" class="form-control">-->
+<!--            <button id="searchBtn" type="button">Search Movies</button>-->
 
-        </div>
+<!--        </div>-->
 <!--        end left display-->
 
 <!--        start main display-->
-        <div class="col-6" id="displayMain">
-            <h1 class="text-center display-3">Movie Info</h1>
+        <div class="col-8" id="displayMain">
+            <div class="d-grid">
+                <button class="btn btn-primary" type="button">Movie Info</button>
+            </div>
             <div id="movieDisplay" class="row">
 
             </div>
@@ -39,14 +76,75 @@
 
 
 <!--        start right display-->
-        <div class="col-3" id="displayRight">
-            <h3>Modify Movie</h3>
-            <button id="modifyBtn">Modify 6</button>
-            <h3 class="text-end">Add New Movie</h3>
-            <label for="addMovieInput" class="form-label">Add Movie</label>
-            <input type="text" id="addMovieInput" name="addMovieInput" class="form-control">
-            <button id="addBtn" type="button">Add movie</button>
-            <button id="picBtn" type="button">Add Picture</button>
+        <div class="col-auto" id="displayRight">
+            <div id="optionMenu">
+                <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger" id="addOptionBtn">Add Movie</button>
+                    <button type="button" class="btn btn-warning" id="editOptionBtn">Edit Movie</button>
+                    <button type="button" class="btn btn-success" id="refreshOptionBtn">Refresh Movie List</button>
+                </div>
+            </div>
+
+            <div id="modifyMovieOption" class="hideOption">
+                <h3>Modify Movie</h3>
+                <button id="modifyBtn">Modify 6</button>
+            </div>
+
+            <div id="addPictureOption" class="hideOption">
+                <label for="addMovieInput" class="form-label">Add Movie</label>
+                <input type="text" id="addMovieInput" name="addMovieInput" class="form-control">
+                <button id="picBtn" type="button">Add Picture</button>
+            </div>
+
+
+
+<!--            form add movie -->
+            <form id="addMovieForm" class="hideOption">
+                <hr>
+                <div class="row mb-1">
+                    <label for="inputTitle" class="form-label text-nowrap">Movie Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputTitle">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputGenre" class="form-label text-nowrap">Movie Genre</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputGenre">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputRating" class="form-label text-nowrap">Movie Rating</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputRating">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputDirector" class="form-label text-nowrap">Movie Director</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputDirector">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputActors" class="form-label text-nowrap">Cast</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputActors">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputPlot" class="form-label text-nowrap">Plot</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPlot">
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <label for="inputPosterLink" class="form-label text-nowrap">Poster Link</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPosterLink">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="addMovieBtn">Add movie</button>
+            </form>
 
         </div>
 <!--        end right display-->

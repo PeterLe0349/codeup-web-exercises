@@ -5,15 +5,17 @@ $(document).ready(function(){
     function refreshMovies(){
         document.getElementById('movieDisplay').innerHTML = 'Loading Movies';
         fetch('https://sequoia-fuchsia-woolen.glitch.me/movies').then( response => {
+            $('#movieDisplay').html('');
             response.json().then( movies => {
                 console.log(movies);
                 document.getElementById('movieDisplay').innerHTML = '';
                 movies.forEach( movieObj  => {
                     let count = 0;
+                    let hmm = 1;
                     // do something with the movie object
                     // (movieObj.title = 'hello');
                     // console.log(movieObj);
-                    $('#movieDisplay').append(JSON.stringify(movieObj));
+                    $('#movieDisplay').append(JSON.stringify(movieObj) + '<br>');
                     // $('#movieDisplay').append(makeMovieData(movieObj));
                 });
             });
@@ -92,27 +94,49 @@ $(document).ready(function(){
                     // console.log('3');
                     posterLink = movies.Poster;
                     console.log('3 The image link is ' + posterLink);
-                    $('#movieDisplay').prepend(createImage(movies, movieName)) ;
+                    $('#movieDisplay').prepend(createImage(movies)) ;
                 }
                 // refreshMovies();
             }))  /* review was created successfully */
             .catch( error => console.error(error) ); /* handle errors */
-
     }
+
     $('#picBtn').click(function(){
         let name = $('#addMovieInput').val();
         makeMoviePosterLink(name);
     });
 
+    function getImageLink(movieName){
+        let movieCheck = `http://www.omdbapi.com/?t=${movieName}&apikey=7f5f0581`;
+        let posterLink = '';
+        console.log('1');
+        fetch(movieCheck)
+            .then( response => response.json().then( movie => {
+                if(movie.Response === 'True'){
+                    // console.log('3');
+                    posterLink = movie.Poster;
+                }
+                return posterLink;
+                // refreshMovies();
+            }))  /* review was created successfully */
+            .catch( error => console.error(error) ); /* handle errors */
+
+    }
 
 
-    function createImage(movies, movieName){
+    function createImage(movies){
         let html = `<div class="col-6">`;
-        html += `<h3>Title: ${movies.Title}</h3>`;
-        html += `<h4>Actors: ${movies.Actors}</h4>`;
-        html += `<h4>Genre: ${movies.Genre}</h4>`;
-        html += `<h4>Rated: ${movies.Rated}</h4>`;
-        html += `<img src="${movies.Poster}" class="img-fluid" alt="BrokenImage">`;
+        html += ` <div class="card bg-dark text-white mb-2 cardMinHeight">`;
+        html += `<img src="${movies.Poster}" class="card-img imgOpacity cardHeight" alt="Broken Image">`;
+        html += `<div class="card-img-overlay">`;
+        html += `<h3 class="card-title">${movies.Title}</h3>`;
+        html += `<p class="card-text"><strong>Actors</strong>: ${movies.Actors}</p>`;
+        html += `<p class="card-text"><strong>Director</strong>: ${movies.Director}</p>`;
+        html += `<p class="card-text"><strong>Genre</strong>: ${movies.Genre}</p>`;
+        html += `<p class="card-text"><strong>Rated</strong>: ${movies.Rated}</p>`;
+        html += `<p class="card-text"><strong>Plot</strong>: ${movies.Plot}</p>`;
+        html += `</div>`; // end card overlay
+        html += `</div>`; // end card
         html += `</div>`;
         return html;
     }
@@ -120,6 +144,37 @@ $(document).ready(function(){
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
+
+    $('#addMovieBtn').click(function(){
+        let movieObj = {};
+        movieObj.Title = $('#inputTitle').val();
+        movieObj.Director = $('#inputDirector').val();
+        movieObj.Actors = $('#inputActors').val();
+        movieObj.Genre = $('#inputGenre').val();
+        movieObj.Rated = $('#inputRating').val();
+        movieObj.Plot = $('#inputPlot').val();
+        movieObj.Poster = $('#inputPosterLink').val();
+        console.log(movieObj);
+        $('#movieDisplay').prepend(createImage(movieObj)) ;
+    });
+
+    $('#addOptionBtn').click(function(){
+        $('#addMovieForm').addClass('hideOption');
+        $('#addPictureOption').toggleClass('hideOption');
+    });
+
+    $('#editOptionBtn').click(function(){
+        $('#addPictureOption').addClass('hideOption');
+        $('#addMovieForm').toggleClass('hideOption');
+    });
+
+    $('#refreshOptionBtn').click(function(){
+        $('#addPictureOption').addClass('hideOption');
+        $('#addMovieForm').addClass('hideOption');
+        refreshMovies();
+    });
+
+
 
 
 
