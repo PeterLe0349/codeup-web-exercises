@@ -13,7 +13,8 @@ $(document).ready(function(){
                     // do something with the movie object
                     // (movieObj.title = 'hello');
                     // console.log(movieObj);
-                    $('#movieDisplay').append(makeMovieData(movieObj));
+                    $('#movieDisplay').append(JSON.stringify(movieObj));
+                    // $('#movieDisplay').append(makeMovieData(movieObj));
                 });
             });
         });
