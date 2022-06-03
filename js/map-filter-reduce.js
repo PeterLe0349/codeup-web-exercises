@@ -38,6 +38,7 @@ const users = [
     }
 ];
 //users with at least 3 languages
+//test
 const usersWithThreeLanguages = users.filter((user) => user.languages.length >= 3);
 console.log(usersWithThreeLanguages);
 
@@ -79,7 +80,6 @@ const uniqueLanguages = users.reduce(  (lanArray, user, index) => {
             lanArray.push(element);
         }
     });
-
     return lanArray;
 }, []);
 console.log('the unique languages are: ' + uniqueLanguages);
