@@ -1,36 +1,52 @@
 "use strict";
-//SORT LOGIC OBJECT
-// employees.sort((a, b) => {
-//     return a.age - b.age;
-// });
-
 $(document).ready(function(){
     refreshMovies();
 
     function refreshMovies(){
+        console.log('r1');
         document.getElementById('movieDisplay').innerHTML = `<div class="text-center"><h1>Loading movies...</h1></div>`;
         fetch('https://sequoia-fuchsia-woolen.glitch.me/movies').then( response => {
             $('#movieDisplay').html('');
+            console.log('r2');
             response.json().then( movies => {
                 console.log(movies);
+                console.log('r3');
                 document.getElementById('movieDisplay').innerHTML = '';
                 movies.forEach( movieObj  => {
                     $('#movieDisplay').append(`${createImageFromGlitch(movieObj)}`     );
+                    //connect delete
+                    console.log("Iterating create object number: " + movieObj.id);
+                    $(`#${movieObj.id}`).click(function(e){
+                        e.preventDefault();
+                        console.log(`${movieObj.id}`);
+                        let deleteID = movieObj.id;
+                        // document.getElementById('deleteIDinput').value = '';
+                        console.log(`Beginning Delete of ${movieObj.id}`)
+                        fetch(`https://sequoia-fuchsia-woolen.glitch.me/movies/${deleteID}`, {
+                            method: 'DELETE',
+                        }).then(result => {
+
+                            console.log(`deleted ${deleteID}`);
+                            console.log(result);
+                            refreshMovies();
+                        });
+                    });
                 });
             });
         });
     }
 
-    function makeMovieData(movieObject){
-        let html = '';
-        html += `<br>Movie ID:${movieObject.id}<br>`;
-        if(movieObject.title !== undefined){
-            html += `Title: ${movieObject.title}<br>`;
-        }
-        return html;
-    }
+    // function makeMovieData(movieObject){
+    //     let html = '';
+    //     html += `<br>Movie ID:${movieObject.id}<br>`;
+    //     if(movieObject.title !== undefined){
+    //         html += `Title: ${movieObject.title}<br>`;
+    //     }
+    //     return html;
+    // }
 
-   $('#modifyBtn').click(function(){
+   $('#modifyBtn').click(function(e){
+       e.preventDefault();
        fetch('https://sequoia-fuchsia-woolen.glitch.me/movies/8', {
            method: 'PATCH',
            body: JSON.stringify({
@@ -99,26 +115,27 @@ $(document).ready(function(){
             .catch( error => console.error(error) ); /* handle errors */
     }
 
-    $('#picBtn').click(function(){
+    $('#picBtn').click(function(e){
+        e.preventDefault();
         let name = $('#addMovieInput').val();
         makeMoviePosterLink(name);
     });
 
-    function getImageLink(movieName){
-        let movieCheck = `http://www.omdbapi.com/?t=${movieName}&apikey=7f5f0581`;
-        let posterLink = '';
-        console.log('1');
-        fetch(movieCheck)
-            .then( response => response.json().then( movie => {
-                if(movie.Response === 'True'){
-                    // console.log('3');
-                    posterLink = movie.Poster;
-                }
-                return posterLink;
-                // refreshMovies();
-            }))  /* review was created successfully */
-            .catch( error => console.error(error) ); /* handle errors */
-    }
+    // function getImageLink(movieName){
+    //     let movieCheck = `http://www.omdbapi.com/?t=${movieName}&apikey=7f5f0581`;
+    //     let posterLink = '';
+    //     console.log('1');
+    //     fetch(movieCheck)
+    //         .then( response => response.json().then( movie => {
+    //             if(movie.Response === 'True'){
+    //                 // console.log('3');
+    //                 posterLink = movie.Poster;
+    //             }
+    //             return posterLink;
+    //             // refreshMovies();
+    //         }))  /* review was created successfully */
+    //         .catch( error => console.error(error) ); /* handle errors */
+    // }
 
 
     function createImage(movies){
@@ -140,66 +157,103 @@ $(document).ready(function(){
 
     function createImageFromGlitch(movies){
         let html = `<div class="col-6">`;
-        html += ` <div class="card bg-dark text-white mb-2 cardMinHeight text-wrap">`;
+        html += ` <div class="card bg-dark text-white mb-2 cardMinHeight text-wrap overflow-auto">`;
         html += `<img src="${movies.poster}" class="card-img imgOpacity cardHeight" alt="Broken Image">`;
         html += `<div class="card-img-overlay">`;
-        html += `<h3 class="card-title">ID#${movies.id} ${movies.title}</h3>`;
+        html += `<h3 class="card-title"> ${movies.title}</h3>`;
         html += `<p class="card-text"><strong>Actors</strong>: ${movies.actors}</p>`;
         html += `<p class="card-text"><strong>Director</strong>: ${movies.director}</p>`;
         html += `<p class="card-text"><strong>Genre</strong>: ${movies.genre}</p>`;
         html += `<p class="card-text"><strong>Rating</strong>: ${movies.rating}</p>`;
         html += `<p class="card-text"><strong>Plot</strong>: ${movies.plot}</p>`;
+        html += `<p class="card-text"><strong>Movie ID</strong>: ${movies.id}</p>`;
+        html += `<button class="btn btn-danger deleteMe" id="${movies.id}">Delete</button>`;
         html += `</div>`; // end card overlay
         html += `</div>`; // end card
         html += `</div>`;
         return html;
     }
 
+
     $('#addMovieBtn').click(function(e){
         e.preventDefault();
+        $('#addMovieBtn').attr('disabled', true);
         let movieObj = {};
         movieObj.title = $('#inputTitle').val();
+        if(movieObj.title === '' || movieObj.title === undefined){
+            movieObj.title = 'N/A';
+        }
         movieObj.director = $('#inputDirector').val();
+        if(movieObj.director === '' || movieObj.director === undefined){
+            movieObj.director = 'N/A';
+        }
         movieObj.actors = $('#inputActors').val();
+        if(movieObj.actors === '' || movieObj.actors === undefined){
+            movieObj.actors = 'N/A';
+        }
         movieObj.genre = $('#inputGenre').val();
+        if(movieObj.genre === '' || movieObj.genre === undefined){
+            movieObj.genre = 'N/A';
+        }
         movieObj.rating = $('#inputRating').val();
+        if(movieObj.rating === '' || movieObj.rating === undefined){
+            movieObj.rating = 'N/A';
+        }
         movieObj.plot = $('#inputPlot').val();
+        if(movieObj.plot === '' || movieObj.plot === undefined){
+            movieObj.plot = 'N/A';
+        }
         movieObj.poster = $('#inputPosterLink').val();
+        if(movieObj.poster === '' || movieObj.poster === undefined){
+            movieObj.poster = 'img/coffee.jpeg';
+        }
+        console.log("showing final object before add");
         console.log(movieObj);
-        let movieCheck = `http://www.omdbapi.com/?t=${movieObj.title}&apikey=7f5f0581`;
         console.log('1');
-        fetch(movieCheck)
-            .then( response => response.json().then( movie => {
-                if(movie.Response === 'True') {
-                    console.log('3');
-                    movieObj.poster = movie.Poster;
-                }
-                console.log(movieObj);
-                console.log(movieObj.poster);
-                $('#movieDisplay').prepend(createImage(movieObj)) ;
-                const url = 'https://sequoia-fuchsia-woolen.glitch.me/movies';
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(movieObj),
-                };
-                fetch(url, options)
-                    .then( response => response.json().then( movies => {
-                        console.log(movies);
-                        refreshMovies();
-                    }))  /* review was created successfully */
-                    .catch( error => console.error(error) ); /* handle errors */
+        $('#movieDisplay').prepend(createImage(movieObj)) ;
+        console.log('4');
+        const url = 'https://sequoia-fuchsia-woolen.glitch.me/movies';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movieObj),
+        };
+        console.log('5');
+        fetch(url, options)
+            .then( response => {
+                $('#addMovieBtn').attr('disabled', false);
+                return response.json();
+            }).then( movies => {
+                console.log("printing the result after post");
+                console.log(movies);
+                console.log('6');
+                refreshMovies();
+            })  /* review was created successfully */
+            .catch( error => console.error(error) );
 
-
-                // refreshMovies();
-            }))  /* review was created successfully */
-            .catch( error => console.error(error) ); /* handle errors */
+        //
+        // fetch(movieCheck)
+        //     .then( response => response.json().then( movie => {
+        //         $('#addMovieBtn').attr('disabled', false);
+        //         if(movie.Response === 'True') {
+        //             console.log('3');
+        //             movieObj.poster = movie.Poster;
+        //         }
+        //         console.log(movieObj);
+        //         console.log(movieObj.poster);
+        //          /* handle errors */
+        //
+        //
+        //         // refreshMovies();
+        //     }))  /* review was created successfully */
+        //     .catch( error => console.error(error) ); /* handle errors */
 
     });
 
-    $('#editChooseBtn').click(function(){
+    $('#editChooseBtn').click(function(e){
+        e.preventDefault();
         let editID = document.getElementById('editIDInput').value;
         console.log('ID to be edited:' + editID);
         fetch(`https://sequoia-fuchsia-woolen.glitch.me/movies/${editID}`, {
@@ -212,11 +266,11 @@ $(document).ready(function(){
             document.getElementById('inputEditDirector').value = final.director;
             document.getElementById('inputEditActors').value = final.actors;
             document.getElementById('inputEditGenre').value = final.genre;
-            document.getElementById('inputEditRating').value = final.rated;
+            document.getElementById('inputEditRating').value = final.rating;
             document.getElementById('inputEditPlot').value = final.plot;
             document.getElementById('inputEditPosterLink').value = final.poster;
-            console.log(movieObj);
-            console.log(JSON.stringify(movieObj));
+            // console.log(movieObj);
+            // console.log(JSON.stringify(movieObj));
             // movieObj.title = final.title;
             // movieObj.director = final.title;
             // movieObj.actors = final.title;
@@ -231,52 +285,56 @@ $(document).ready(function(){
 
     $('#editMovieSubBtn').click(function(e){
         e.preventDefault();
+        console.log("start edit submit");
         let editID = document.getElementById('editIDInput').value;
         let movieObj = {};
         movieObj.title =  document.getElementById('inputEditTitle').value
         movieObj.director =  document.getElementById('inputEditDirector').value;
         movieObj.actors = document.getElementById('inputEditActors').value;
         movieObj.genre =  document.getElementById('inputEditGenre').value;
-        movieObj.rated = document.getElementById('inputEditRating').value;
+        movieObj.rating = document.getElementById('inputEditRating').value;
         movieObj.plot = document.getElementById('inputEditPlot').value;
         movieObj.poster =  document.getElementById('inputEditPosterLink').value;
         console.log(movieObj);
         let movieCheck = `http://www.omdbapi.com/?t=${movieObj.title}&apikey=7f5f0581`;
         console.log('1');
-        fetch(movieCheck)
-            .then( response => response.json().then( movie => {
-                if(movie.Response === 'True') {
-                    console.log('3');
-                    movieObj.poster = movie.Poster;
-                }
-                console.log(movieObj);
-                console.log(movieObj.poster);
-                $('#movieDisplay').prepend(createImage(movieObj)) ;
-                const url = `https://sequoia-fuchsia-woolen.glitch.me/movies/${editID}`;
-                const options = {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(movieObj),
-                };
-                fetch(url, options)
-                    .then( response => response.json().then( movies => {
-                        console.log(movies);
-                        refreshMovies();
-                    }))  /* review was created successfully */
-                    .catch( error => console.error(error) ); /* handle errors */
-
-
-                // refreshMovies();
+        // $('#movieDisplay').prepend(createImage(movieObj)) ;
+        const url = `https://sequoia-fuchsia-woolen.glitch.me/movies/${editID}`;
+        const options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movieObj),
+        };
+        fetch(url, options)
+            .then( response => response.json().then( movies => {
+                // console.log(movies);
+                console.log("3");
+                refreshMovies();
             }))  /* review was created successfully */
             .catch( error => console.error(error) ); /* handle errors */
+        // fetch(movieCheck)
+        //     .then( response => response.json().then( movie => {
+        //         // if(movie.Response === 'True') {
+        //         //     console.log('3');
+        //         //     movieObj.poster = movie.Poster;
+        //         // }
+        //         console.log("2");
+        //         console.log(movieObj);
+        //         console.log(movieObj.poster);
+        //
+        //
+        //
+        //         // refreshMovies();
+        //     }))  /* review was created successfully */
 
     });
 
     //work in tandem with add movie
 
-    $('#deleteSubBtn').click(function(){
+    $('#deleteSubBtn').click(function(e){
+        e.preventDefault();
         console.log(document.getElementById('deleteIDinput').value);
        let deleteID = (document.getElementById('deleteIDinput').value);
         document.getElementById('deleteIDinput').value = '';
@@ -408,13 +466,13 @@ $(document).ready(function(){
         }).then( thirdPull => {
             thirdPull.sort(  (a,b) => {
                 if((a.rating === undefined) || (a.rating === '')){
-                    a.rating = ' ';
+                    a.rating = 0;
                 }
                 if((b.rating === undefined) || (a.rating === '' )){
-                    b.rating = ' ';
+                    b.rating = 0;
                 }
-                let fa = a.rating.toLowerCase(),
-                    fb = b.rating.toLowerCase();
+                let fa = parseFloat(a.rating),
+                    fb = parseFloat(b.rating);
 
                 if (fa > fb) {
                     return -1;

@@ -42,13 +42,14 @@
                                 <li><a class="dropdown-item" href="#">Genre</a></li>
                             </ul>
                         </li>
+
 <!--                        <li class="nav-item">-->
 <!--                            <a class="nav-link disabled">Disabled</a>-->
 <!--                        </li>-->
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search movies db" aria-label="Search" id="searchMovieInput">
-                        <button class="btn btn-outline-light" type="submit" id="searchMovieBtn">Search</button>
+                        <button class="btn btn-outline-light" type="button" id="searchMovieBtn">Search</button>
                     </form>
                 </div>
             </div>
@@ -92,7 +93,7 @@
                 <input type="number" id="editIDInput">
                 <button type="button" id="editChooseBtn">Edit</button>
                 <hr>
-                <form id="editForm">
+<!--                <form id="editForm">-->
                     <div class="row mb-1">
                         <label for="inputTitle" class="form-label text-nowrap">Movie Title</label>
                         <div class="col-sm-10">
@@ -108,7 +109,7 @@
                     <div class="row mb-1">
                         <label for="inputRating" class="form-label text-nowrap">Movie Rating</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputEditRating" min="0" max="10">
+                            <input type="text" class="form-control" id="inputEditRating" >
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -135,8 +136,8 @@
                             <input type="text" class="form-control" id="inputEditPosterLink">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-secondary" id="editMovieSubBtn">Edit movie</button>
-                </form>
+                    <button type="button" class="btn btn-secondary" id="editMovieSubBtn">Edit movie</button>
+<!--                </form>-->
 
 
             </div>
@@ -159,7 +160,7 @@
 
 <!--            form add movie -->
             <div id="addMovieForm" class="hideOption">
-            <form id="addForm">
+<!--            <form id="addForm">-->
                 <hr>
                 <div class="row mb-1">
                     <label for="inputTitle" class="form-label text-nowrap">Movie Title</label>
@@ -203,8 +204,8 @@
                         <input type="text" class="form-control" id="inputPosterLink">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-danger" id="addMovieBtn">Add movie</button>
-            </form>
+                <button type="button" class="btn btn-danger" id="addMovieBtn">Add movie</button>
+<!--            </form>-->
             </div>
         </div>
 
@@ -226,6 +227,9 @@
         crossorigin="anonymous"></script>
 <!--Personal custom JS script-->
 <script src="js/testMovies.js"></script>
+<script>
+
+</script>
 
 </body>
 </html>

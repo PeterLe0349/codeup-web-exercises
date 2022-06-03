@@ -37,10 +37,11 @@ const users = [
         yearsOfExperience: 9
     }
 ];
-
+//users with at least 3 languages
 const usersWithThreeLanguages = users.filter((user) => user.languages.length >= 3);
 console.log(usersWithThreeLanguages);
 
+//array with strings of emails
 const arrayOfEmails = users.map( user => user.email);
 console.log(arrayOfEmails);
 
@@ -48,7 +49,7 @@ console.log(arrayOfEmails);
 const totalOfAllUsersExperience = users.reduce( (total, user) => {
     return total + user.yearsOfExperience;
 },0);
-console.log(totalOfAllUsersExperience);
+console.log(`Average years of experience is: ${totalOfAllUsersExperience/users.length}`);
 
 //     Use .reduce to get the longest email from the list of users.
 const longestEmail = users.reduce ((longest, user) => {
