@@ -80,7 +80,6 @@ const uniqueLanguages = users.reduce(  (lanArray, user, index) => {
             lanArray.push(element);
         }
     });
-
     return lanArray;
 }, []);
 console.log('the unique languages are: ' + uniqueLanguages);
