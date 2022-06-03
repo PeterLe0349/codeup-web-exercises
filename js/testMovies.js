@@ -15,7 +15,7 @@ $(document).ready(function(){
                 console.log(movies);
                 document.getElementById('movieDisplay').innerHTML = '';
                 movies.forEach( movieObj  => {
-                    $('#movieDisplay').append(`<div class="overflow-auto" id="${movieObj.id}"> ${JSON.stringify(movieObj)}</div>`     );
+                    $('#movieDisplay').append(`<div class="col-12 text-break " id="${movieObj.id}"> ${JSON.stringify(movieObj)}</div><hr>`     );
                 });
             });
         });
@@ -63,8 +63,35 @@ $(document).ready(function(){
                 console.log('2');
                 console.log(movies);
                 if(movies.Response === 'True'){
-                    // console.log('3');
+                    console.log('3');
                     posterLink = movies.Poster;
+                    //add movie to Database
+                    let movieObj = {};
+                    movieObj.title = movies.Title;
+                    movieObj.director = movies.Director;
+                    movieObj.actors = movies.Actors
+                    movieObj.genre = movies.Genre;
+                    movieObj.rated = movies.Ratings[0].Value;
+                    movieObj.plot = movies.Plot;
+                    movieObj.poster = movies.Poster;
+                    console.log(movieObj);
+                    //ADD MOVIE TO DB
+                    const url = 'https://sequoia-fuchsia-woolen.glitch.me/movies';
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(movieObj),
+                    };
+                    fetch(url, options)
+                        .then( response => response.json().then( movies => {
+                            console.log(movies);
+                            refreshMovies();
+                        }))  /* review was created successfully */
+                        .catch( error => console.error(error) ) /* handle errors */
+            .catch( error => console.error(error) ); /* handle errors */
+                    //Create Poster Movie Card
                     console.log('3 The image link is ' + posterLink);
                     $('#movieDisplay').prepend(createImage(movies)) ;
                 }
