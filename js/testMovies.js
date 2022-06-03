@@ -15,7 +15,7 @@ $(document).ready(function(){
                 console.log(movies);
                 document.getElementById('movieDisplay').innerHTML = '';
                 movies.forEach( movieObj  => {
-                    $('#movieDisplay').append(`<div class="col-12 text-break " id="${movieObj.id}"> ${JSON.stringify(movieObj)}</div><hr>`     );
+                    $('#movieDisplay').append(`${createImageFromGlitch(movieObj)}`     );
                 });
             });
         });
@@ -71,7 +71,7 @@ $(document).ready(function(){
                     movieObj.director = movies.Director;
                     movieObj.actors = movies.Actors
                     movieObj.genre = movies.Genre;
-                    movieObj.rated = movies.Ratings[0].Value;
+                    movieObj.rating = movies.Ratings[0].Value;
                     movieObj.plot = movies.Plot;
                     movieObj.poster = movies.Poster;
                     console.log(movieObj);
@@ -87,7 +87,6 @@ $(document).ready(function(){
                     fetch(url, options)
                         .then( response => response.json().then( movies => {
                             console.log(movies);
-                            refreshMovies();
                         }))  /* review was created successfully */
                         .catch( error => console.error(error) ) /* handle errors */
             .catch( error => console.error(error) ); /* handle errors */
@@ -139,6 +138,23 @@ $(document).ready(function(){
         return html;
     }
 
+    function createImageFromGlitch(movies){
+        let html = `<div class="col-6">`;
+        html += ` <div class="card bg-dark text-white mb-2 cardMinHeight text-wrap">`;
+        html += `<img src="${movies.poster}" class="card-img imgOpacity cardHeight" alt="Broken Image">`;
+        html += `<div class="card-img-overlay">`;
+        html += `<h3 class="card-title">ID#${movies.id} ${movies.title}</h3>`;
+        html += `<p class="card-text"><strong>Actors</strong>: ${movies.actors}</p>`;
+        html += `<p class="card-text"><strong>Director</strong>: ${movies.director}</p>`;
+        html += `<p class="card-text"><strong>Genre</strong>: ${movies.genre}</p>`;
+        html += `<p class="card-text"><strong>Rating</strong>: ${movies.rating}</p>`;
+        html += `<p class="card-text"><strong>Plot</strong>: ${movies.plot}</p>`;
+        html += `</div>`; // end card overlay
+        html += `</div>`; // end card
+        html += `</div>`;
+        return html;
+    }
+
     $('#addMovieBtn').click(function(e){
         e.preventDefault();
         let movieObj = {};
@@ -146,11 +162,11 @@ $(document).ready(function(){
         movieObj.director = $('#inputDirector').val();
         movieObj.actors = $('#inputActors').val();
         movieObj.genre = $('#inputGenre').val();
-        movieObj.rated = $('#inputRating').val();
+        movieObj.rating = $('#inputRating').val();
         movieObj.plot = $('#inputPlot').val();
         movieObj.poster = $('#inputPosterLink').val();
         console.log(movieObj);
-        let movieCheck = `http://www.omdbapi.com/?t=${movieObj.Title}&apikey=7f5f0581`;
+        let movieCheck = `http://www.omdbapi.com/?t=${movieObj.title}&apikey=7f5f0581`;
         console.log('1');
         fetch(movieCheck)
             .then( response => response.json().then( movie => {
@@ -310,6 +326,112 @@ $(document).ready(function(){
         $('#editMovieOption').addClass('hideOption');
         refreshMovies();
     });
+
+    $('#sortOption a').click(function(){
+        if($(this).text() === 'by Title'){
+            console.log("title");
+            sortByTitle();
+        }else if($(this).text() === 'by Rating'){
+            console.log("rating");
+            sortByRating();
+        }
+    });
+
+    $('#searchMovieBtn').click(function(){
+        let searchInput = $('#searchMovieInput').val();
+        console.log("search query is: " + searchInput);
+        const myPromise = fetch(`https://sequoia-fuchsia-woolen.glitch.me/movies`).then(firstPull => firstPull.json().then( secondPull => {
+            // console.log(secondPull);
+            // console.log(JSON.stringify(secondPull));
+            // let newPull = [];
+            $('#movieDisplay').html('');
+            secondPull.forEach(singlePull => {
+                if(singlePull.title === searchInput){
+                    console.log("yes");
+                    console.log(singlePull);
+                    $('#movieDisplay').append(`${createImageFromGlitch(singlePull)}`     );
+                }else{
+                    console.log("no");
+                }
+                // newPull.push(new Object(singlePull));
+            });
+        }));
+    });
+
+
+    function sortByTitle(){
+        const myPromise = fetch(`https://sequoia-fuchsia-woolen.glitch.me/movies`).then(firstPull => firstPull.json().then( secondPull => {
+            console.log(secondPull);
+            // console.log(JSON.stringify(secondPull));
+            let newPull = [];
+            secondPull.forEach(singlePull => {
+                newPull.push(new Object(singlePull));
+            });
+            return newPull;
+        }).then( thirdPull => {
+            thirdPull.sort(  (a,b) => {
+                if((a.title === undefined) || (a.title === '')){
+                    a.title = ' ';
+                }
+                if((b.title === undefined) || (a.title === '' )){
+                    b.title = ' ';
+                }
+                let fa = a.title.toLowerCase(),
+                    fb = b.title.toLowerCase();
+
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            }    );
+            $('#movieDisplay').html('');
+            thirdPull.forEach( movieObj  => {
+                $('#movieDisplay').append(`${createImageFromGlitch(movieObj)}`     );
+            });
+            // thirdPull.forEach(pull => console.log(pull.actors));
+            // console.log(JSON.stringify(thirdPutitle
+        }));
+    }
+
+    function sortByRating(){
+        const myPromise = fetch(`https://sequoia-fuchsia-woolen.glitch.me/movies`).then(firstPull => firstPull.json().then( secondPull => {
+            console.log(secondPull);
+            // console.log(JSON.stringify(secondPull));
+            let newPull = [];
+            secondPull.forEach(singlePull => {
+                newPull.push(new Object(singlePull));
+            });
+            return newPull;
+        }).then( thirdPull => {
+            thirdPull.sort(  (a,b) => {
+                if((a.rating === undefined) || (a.rating === '')){
+                    a.rating = ' ';
+                }
+                if((b.rating === undefined) || (a.rating === '' )){
+                    b.rating = ' ';
+                }
+                let fa = a.rating.toLowerCase(),
+                    fb = b.rating.toLowerCase();
+
+                if (fa > fb) {
+                    return -1;
+                }
+                if (fa < fb) {
+                    return 1;
+                }
+                return 0;
+            }    );
+            $('#movieDisplay').html('');
+            thirdPull.forEach( movieObj  => {
+                $('#movieDisplay').append(`${createImageFromGlitch(movieObj)}`     );
+            });
+            // thirdPull.forEach(pull => console.log(pull.actors));
+            // console.log(JSON.stringify(thirdPutitle
+        }));
+    }
 
 
 

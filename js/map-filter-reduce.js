@@ -69,4 +69,20 @@ const stringListOfNames = users.reduce ( (listString, user, index) => {
     }
     return listString;
 }, 'Your instructors are:');
+
+//bonus get unique array of languages
+
+const uniqueLanguages = users.reduce(  (lanArray, user, index) => {
+    user.languages.forEach(function(element){
+        if(!lanArray.includes(element)){
+            lanArray.push(element);
+        }
+    });
+
+    return lanArray;
+}, []);
+console.log('the unique languages are: ' + uniqueLanguages);
+
+
+
 console.log(stringListOfNames);

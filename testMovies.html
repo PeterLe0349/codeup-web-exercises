@@ -33,13 +33,13 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Info
+                                Sort
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Actors/Actresses</a></li>
-                                <li><a class="dropdown-item" href="#">Recommended</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="sortOption">
+                                <li><a class="dropdown-item" href="#" id="sortTitle">by Title</a></li>
+                                <li><a class="dropdown-item" href="#" id="sortRating">by Rating</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Buy BluRays</a></li>
+                                <li><a class="dropdown-item" href="#">Genre</a></li>
                             </ul>
                         </li>
 <!--                        <li class="nav-item">-->
@@ -108,7 +108,7 @@
                     <div class="row mb-1">
                         <label for="inputRating" class="form-label text-nowrap">Movie Rating</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputEditRating">
+                            <input type="number" class="form-control" id="inputEditRating" min="0" max="10">
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -176,7 +176,7 @@
                 <div class="row mb-1">
                     <label for="inputRating" class="form-label text-nowrap">Movie Rating</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputRating">
+                        <input type="number" class="form-control" id="inputRating" min="0" max="10">
                     </div>
                 </div>
                 <div class="row mb-1">
