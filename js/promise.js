@@ -10,23 +10,33 @@ $(document).ready(function(){
           .catch( error => console.error(error))
    }
 
+    function getLastCommitOfUser(userName){
+        return fetch(`https://api.github.com/users/${userName}/events/public`, {headers: {'Authorization': GITHUB_KEY}})
+            .then(response => response.json()).then( data => {
+                console.log(`Last commit of ${userName} is ${data[0].created_at}`);
+                console.log(data);
+            })
+            .catch( error => console.error(error))
+    }
+    getLastCommitOfUser('PeterLe0349');
 
 
-   function wait(seconds) {
+
+   function wait(seconds, userName) {
          return new Promise((resolve, reject) => {
                setTimeout(() => {
                   waitTime = seconds;
-               resolve(getLastResolve('PeterLe0349'));
+               resolve(getLastResolve(userName));
                console.log(`Waiting for ${seconds} ms.`);
             }, seconds);
          })
    }
    let waitTime;
    //
-   const myPromise = wait(3000);
+   const myPromise = wait(3000, 'PeterLe0349');
      myPromise.then(data => {
         console.log(`After ${waitTime} ms... the data is..`);
-        console.log(data)});
+        console.log("Latest Commit was: " + data[0].created_at)});
 
 
 
