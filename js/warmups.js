@@ -1,4 +1,9 @@
 "use strict";
+$(document).ready(function(){
+    console.log("hi");
+    fetch(`https://quotes.rest/qod`).then(result => result.json()).then( finale => console.log(finale));
+
+});
 
 
 
